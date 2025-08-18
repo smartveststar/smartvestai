@@ -33,88 +33,107 @@ export default function InvestBotsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">
-        Loading bots...
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
+        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-8 text-gray-900 dark:text-white text-lg">
+          Loading bots...
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <div className="max-w-4xl mx-auto">
-        <div className="px-6 pt-8 pb-8">
-          <h1 className="text-white text-3xl font-semibold mb-3">Investment Bots</h1>
-          <p className="text-gray-400 text-base">AI-powered trading bots for automated returns</p>
+    <div className="w-full max-w-6xl mx-auto space-y-2 p-2">
+      {/* Header Section */}
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6 mb-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2 tracking-tight">
+              Investment Bots
+            </h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              AI-powered trading bots for automated returns
+            </p>
+          </div>
+          <div className="flex items-center justify-between gap-2 px-4 py-2 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800/30">
+          <div className="w-2 h-2 bg-green-800 rounded-full animate-pulse"></div>
+          <div className="flex items-center gap-1 text-sm font-medium text-green-800 dark:text-green-300">
+            <span>{bots.length}</span>
+            <span>Available</span>
+          </div>
         </div>
 
-        <div className="px-6 pb-8">
-          {bots.map((bot) => (
-            <div key={bot.id} className="mb-4">
-              <div
-                className={`bg-gray-800 rounded-3xl transition-all duration-200 overflow-hidden ${
-                  selectedBot?.id === bot.id ? 'ring-2 ring-blue-500' : ''
-                }`}
-              >
-                <div
-                  className="p-6 pb-4 cursor-pointer hover:bg-gray-700/50"
-                  onClick={() => setSelectedBot(selectedBot?.id === bot.id ? null : bot)}
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="flex-1">
-                      <div className="flex items-center mb-2">
-                        <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-3">
-                          <Bot size={18} color="white" />
-                        </div>
-                        <h3 className="text-white text-lg font-semibold">{bot.name}</h3>
-                      </div>
-                      <p className="text-gray-400 text-sm">{bot.description}</p>
-                    </div>
-                    <div className="ml-4">
-                      {selectedBot?.id === bot.id ? (
-                        <ChevronUp size={20} color="#9CA3AF" />
-                      ) : (
-                        <ChevronDown size={20} color="#9CA3AF" />
-                      )}
-                    </div>
-                  </div>
+        </div>
+      </div>
 
-                  {selectedBot?.id === bot.id && (
-                    <div className="border-t border-gray-700 p-6 space-y-3">
-                      <p className="text-gray-400 text-sm">
-                        <span className="font-semibold text-white block">Investment</span>
-                        {bot.investment_range}
-                      </p>
-                      <p className="text-gray-400 text-sm">
-                        <span className="font-semibold text-white block">Capital Back</span>
-                        {bot.capital_back}
-                      </p>
-                      <p className="text-gray-400 text-sm">
-                        <span className="font-semibold text-white block">Return Type</span>
-                        {bot.return_type}
-                      </p>
-                      <p className="text-gray-400 text-sm">
-                        <span className="font-semibold text-white block">Number of Periods</span>
-                        {bot.number_of_periods}
-                      </p>
-                      <p className="text-gray-400 text-sm">
-                        <span className="font-semibold text-white block">Profit Withdraw</span>
-                        {bot.profit_withdraw}
-                      </p>
-                      <p className="text-yellow-400 text-sm italic">{bot.holiday_note}</p>
-
-                      <Link
-                        href={`/dashboard/invest/${bot.id}`}
-                        className="inline-block bg-blue-600 text-white px-4 py-2 rounded-xl text-sm mt-2"
-                      >
-                        Invest
-                      </Link>
-                    </div>
+      {/* Bots Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {bots.map((bot) => (
+          <div
+            key={bot.id}
+            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm overflow-hidden"
+          >
+            {/* Bot Header */}
+            <div className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700/50"
+              onClick={() => setSelectedBot(selectedBot?.id === bot.id ? null : bot)}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  {bot.name}
+                </h3>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-gray-600 dark:text-gray-400 font-mono bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                    #{bot.id}
+                  </span>
+                  {selectedBot?.id === bot.id ? (
+                    <ChevronUp className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                   )}
                 </div>
               </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {bot.description}
+              </p>
             </div>
-          ))}
-        </div>
+
+            {/* Bot Details */}
+            {selectedBot?.id === bot.id && (
+              <div className="p-6 space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+                    <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Investment</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{bot.investment_range}</div>
+                  </div>
+                  <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+                    <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Capital Back</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{bot.capital_back}</div>
+                  </div>
+                  <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+                    <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Return Type</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{bot.return_type}</div>
+                  </div>
+                  <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+                    <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Number of Periods</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{bot.number_of_periods}</div>
+                  </div>
+                </div>
+                <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+                  <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Profit Withdraw</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{bot.profit_withdraw}</div>
+                </div>
+                <p className="text-yellow-400 text-sm italic text-center">{bot.holiday_note}</p>
+                <Link
+                  href={`/dashboard/invest/${bot.id}`}
+                  className="flex items-center justify-center gap-3 px-6 py-3 text-white bg-green-800 hover:bg-green-900 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
+                >
+                  <Bot className="w-4 h-4" />
+                  Invest Now
+                </Link>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );

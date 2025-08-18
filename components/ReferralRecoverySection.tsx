@@ -1,80 +1,83 @@
 import React from 'react';
-import { Users, Shield, CheckCircle, Bot, Lock, Eye, Zap } from 'lucide-react';
+import { Users, Shield, CheckCircle, Bot, Lock, Eye, BarChart3, Award, Target } from 'lucide-react';
 
-
-export default function ReferralRecoverySection() {
+export default function SmartVestReferralRecoverySection() {
   return (
-    <div className="max-w-6xl mx-auto mb-12 sm:mb-16">
-      {/* Referral Bonus Program */}
-      <div className="bg-gray-900/60 backdrop-blur-lg rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-700 shadow-2xl shadow-blue-500/10 mb-8 sm:mb-12">
-        <div className="text-center mb-6 sm:mb-8">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-purple-500/50">
-            <Users className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+    <div className="max-w-7xl mx-auto mb-16 sm:mb-20">
+      {/* Professional Partnership Program */}
+      <div className="bg-gradient-to-br from-slate-800/60 to-gray-900/60 backdrop-blur-lg rounded-3xl p-8 sm:p-10 border border-slate-700/50 shadow-2xl shadow-slate-900/30 mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-teal-600 to-emerald-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-teal-600/40 border border-teal-500/30">
+            <Users className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
           </div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">👥 Referral Bonus Program</h3>
-          <p className="text-cyan-300 text-lg sm:text-xl font-semibold">Earn More by Sharing the Opportunity</p>
+          <h3 className="text-3xl sm:text-4xl font-bold text-white mb-6">Partnership Rewards Program</h3>
+          <p className="text-emerald-300 text-xl sm:text-2xl font-semibold">Professional Network Growth Incentives</p>
         </div>
 
-        <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
-          <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-            At TrustChainInvestAI.com, we believe in rewarding our community for helping us grow. With our Referral Bonus Program, you can earn passive income simply by introducing others to our platform.
+        <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-10">
+          <p className="text-slate-200 text-base sm:text-lg lg:text-xl leading-relaxed">
+            At SmartVest AI, we recognize the value of professional networks in expanding sophisticated investment opportunities. Our Partnership Rewards Program provides structured compensation for qualified referrals to our institutional-grade platform.
           </p>
           
-          <div className="mb-4 sm:mb-6">
-            <p className="text-white text-base sm:text-lg font-semibold mb-4">Here&apos;s how it works:</p>
-            <div className="space-y-3 sm:space-y-4">
-              <div className="flex items-start space-x-3 sm:space-x-4 p-4 bg-gray-800/50 rounded-xl border border-purple-500/30">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-white font-bold text-sm">1</span>
+          <div className="mb-6 sm:mb-8">
+            <p className="text-white text-lg sm:text-xl font-semibold mb-6">Professional Tier Structure:</p>
+            <div className="space-y-4 sm:space-y-6">
+              <div className="flex items-start space-x-4 sm:space-x-6 p-6 bg-slate-700/30 rounded-2xl border border-teal-500/30">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-emerald-700 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-white font-bold text-lg">I</span>
                 </div>
                 <div>
-                  <p className="text-purple-300 font-semibold text-sm sm:text-base">💼 Level 1 Referral</p>
-                  <p className="text-gray-300 text-sm sm:text-base">Earn 7% of your direct referral&apos;s investment</p>
+                  <p className="text-teal-300 font-semibold text-base sm:text-lg mb-2">Primary Partnership Level</p>
+                  <p className="text-slate-200 text-base sm:text-lg">Earn 5% commission on direct referral investments</p>
+                  <p className="text-slate-400 text-sm mt-1">Professional network development reward</p>
                 </div>
               </div>
               
-              <div className="flex items-start space-x-3 sm:space-x-4 p-4 bg-gray-800/50 rounded-xl border border-purple-500/30">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-white font-bold text-sm">2</span>
+              <div className="flex items-start space-x-4 sm:space-x-6 p-6 bg-slate-700/30 rounded-2xl border border-teal-500/30">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-emerald-700 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-white font-bold text-lg">II</span>
                 </div>
                 <div>
-                  <p className="text-purple-300 font-semibold text-sm sm:text-base">🤝 Level 2 Referral</p>
-                  <p className="text-gray-300 text-sm sm:text-base">Earn 5% from your referral&apos;s referral</p>
+                  <p className="text-teal-300 font-semibold text-base sm:text-lg mb-2">Secondary Network Level</p>
+                  <p className="text-slate-200 text-base sm:text-lg">Earn 3% from secondary network investments</p>
+                  <p className="text-slate-400 text-sm mt-1">Extended network growth compensation</p>
                 </div>
               </div>
               
-              <div className="flex items-start space-x-3 sm:space-x-4 p-4 bg-gray-800/50 rounded-xl border border-purple-500/30">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-white font-bold text-sm">3</span>
+              <div className="flex items-start space-x-4 sm:space-x-6 p-6 bg-slate-700/30 rounded-2xl border border-teal-500/30">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-emerald-700 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-white font-bold text-lg">III</span>
                 </div>
                 <div>
-                  <p className="text-purple-300 font-semibold text-sm sm:text-base">🌐 Level 3 Referral</p>
-                  <p className="text-gray-300 text-sm sm:text-base">Earn 3% from the third level down</p>
+                  <p className="text-teal-300 font-semibold text-base sm:text-lg mb-2">Tertiary Network Level</p>
+                  <p className="text-slate-200 text-base sm:text-lg">Earn 2% from tertiary network investments</p>
+                  <p className="text-slate-400 text-sm mt-1">Long-term network value recognition</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-            This multi-tier structure means that your network continues to reward you, even as it expands. The more you share, the more you earn — it&apos;s that simple...
+          <p className="text-slate-200 text-base sm:text-lg lg:text-xl leading-relaxed">
+            This structured approach ensures sustainable growth while rewarding our partners for expanding access to sophisticated AI-driven investment solutions. All commissions are processed through our secure, transparent payment system.
           </p>
         </div>
       </div>
 
-      {/* Recovery Process */}
-      <div className="bg-gray-900/60 backdrop-blur-lg rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-700 shadow-2xl shadow-blue-500/10">
-        <div className="text-center mb-6 sm:mb-8">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-green-500/50">
-            <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+      {/* Portfolio Recovery Services */}
+      <div className="bg-gradient-to-br from-slate-800/60 to-gray-900/60 backdrop-blur-lg rounded-3xl p-8 sm:p-10 border border-slate-700/50 shadow-2xl shadow-slate-900/30">
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-emerald-600/40 border border-emerald-500/30">
+            <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
           </div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">🔄 Our Recovery Process — Powered by ChainMasterBot</h3>
+          <h3 className="text-3xl sm:text-4xl font-bold text-white mb-6">Portfolio Recovery Services</h3>
+          <p className="text-emerald-300 text-lg sm:text-xl">Powered by SmartVest Premier Recovery Engine</p>
         </div>
 
-        <div className="relative aspect-video rounded-xl overflow-hidden bg-black border border-gray-700 mb-4">
+        <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/50 shadow-lg mb-8">
           <iframe
             className="absolute top-0 left-0 w-full h-full"
             src="https://www.youtube.com/embed/7A3LiBdMD-8?controls=1&modestbranding=1&rel=0"
-            title="YouTube video player"
+            title="SmartVest AI Portfolio Recovery Process"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
@@ -82,91 +85,106 @@ export default function ReferralRecoverySection() {
           />
         </div>
 
-
-        <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
-          <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-            At Trustchaininvestai, we understand how critical it is to recover lost or stuck funds in the digital finance space. That&apos;s why we&apos;ve developed a reliable and transparent Recovery Process that works seamlessly with the ChainMasterBot—a powerful and intelligent tool designed for fund recovery and performance tracking on blockchain networks.
+        <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-10">
+          <p className="text-slate-200 text-base sm:text-lg lg:text-xl leading-relaxed">
+            SmartVest AI recognizes the challenges investors face with underperforming or inaccessible investments. Our Portfolio Recovery Services leverage advanced AI algorithms and institutional-grade recovery protocols to systematically rehabilitate compromised investment positions.
           </p>
 
-          <div className="mb-6 sm:mb-8">
-            <div className="flex items-center space-x-3 mb-4 sm:mb-6">
-              <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-green-400" />
-              <h4 className="text-xl sm:text-2xl font-bold text-white">✅ How It Works</h4>
+          <div className="mb-8 sm:mb-10">
+            <div className="flex items-center space-x-4 mb-6 sm:mb-8">
+              <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-400" />
+              <h4 className="text-2xl sm:text-3xl font-bold text-white">Recovery Protocol Framework</h4>
             </div>
-            <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6">
-              Our recovery process is straightforward, transparent, and built around consistent monthly payouts until your full invested amount is recovered:
+            <p className="text-slate-200 text-base sm:text-lg lg:text-xl leading-relaxed mb-8">
+              Our systematic approach employs institutional-grade methodologies for portfolio rehabilitation through structured monthly recovery distributions:
             </p>
 
-            <div className="space-y-4 sm:space-y-6">
-              <div className="p-4 sm:p-6 bg-gray-800/50 rounded-xl border border-green-500/30">
-                <h5 className="text-lg sm:text-xl font-semibold text-green-300 mb-2">1. Enrollment & Verification</h5>
-                <p className="text-gray-300 text-sm sm:text-base">
-                  Once you enroll in our recovery program, you submit your proof that you invested in any scam companies when we verify your claim and we connect your case to our ChainMasterBot system.
+            <div className="space-y-6 sm:space-y-8">
+              <div className="p-6 sm:p-8 bg-slate-700/30 rounded-2xl border border-emerald-500/30">
+                <h5 className="text-xl sm:text-2xl font-semibold text-emerald-300 mb-4">1. Portfolio Assessment & Documentation</h5>
+                <p className="text-slate-200 text-base sm:text-lg">
+                  Comprehensive evaluation of investment positions with full documentation requirements. Our AI systems analyze portfolio composition and establish recovery parameters through our Premier Recovery Engine.
                 </p>
               </div>
 
-              <div className="p-4 sm:p-6 bg-gray-800/50 rounded-xl border border-green-500/30">
-                <h5 className="text-lg sm:text-xl font-semibold text-green-300 mb-2">2. Investment Matching via ChainMasterBot</h5>
-                <p className="text-gray-300 text-sm sm:text-base">
-                  We link your case to ChainMasterBot, which securely manages and tracks your investment recovery. This advanced tool ensures traceable, verifiable transactions and real-time progress updates.
+              <div className="p-6 sm:p-8 bg-slate-700/30 rounded-2xl border border-emerald-500/30">
+                <h5 className="text-xl sm:text-2xl font-semibold text-emerald-300 mb-4">2. Premier Engine Integration</h5>
+                <p className="text-slate-200 text-base sm:text-lg">
+                  Portfolio positions are integrated into our SmartVest Premier Recovery Engine, utilizing blockchain technology for transparent tracking and automated distribution processing with real-time performance monitoring.
                 </p>
               </div>
 
-              <div className="p-4 sm:p-6 bg-gray-800/50 rounded-xl border border-green-500/30">
-                <h5 className="text-lg sm:text-xl font-semibold text-green-300 mb-2">3. Monthly Recovery Payments (10%)</h5>
-                <p className="text-gray-300 text-sm sm:text-base">
-                  Every month, you receive 10% of the total amount you initially invested in the ChainMasterBot. These monthly payouts continue until your entire invested funds are fully recovered.
+              <div className="p-6 sm:p-8 bg-slate-700/30 rounded-2xl border border-emerald-500/30">
+                <h5 className="text-xl sm:text-2xl font-semibold text-emerald-300 mb-4">3. Structured Recovery Distributions (8% Monthly)</h5>
+                <p className="text-slate-200 text-base sm:text-lg">
+                  Monthly distributions of 8% of assessed portfolio value through our Premier Recovery Engine. This conservative approach ensures sustainable recovery while maintaining portfolio integrity throughout the rehabilitation process.
                 </p>
               </div>
 
-              <div className="p-4 sm:p-6 bg-gray-800/50 rounded-xl border border-green-500/30">
-                <h5 className="text-lg sm:text-xl font-semibold text-green-300 mb-2">4. Transparent Tracking</h5>
-                <p className="text-gray-300 text-sm sm:text-base">
-                  You can monitor the recovery progress at any time through our secure portal powered by ChainMasterBot&apos;s reporting features.
+              <div className="p-6 sm:p-8 bg-slate-700/30 rounded-2xl border border-emerald-500/30">
+                <h5 className="text-xl sm:text-2xl font-semibold text-emerald-300 mb-4">4. Institutional-Grade Monitoring</h5>
+                <p className="text-slate-200 text-base sm:text-lg">
+                  Continuous monitoring through our secure client portal with comprehensive reporting, performance analytics, and milestone tracking powered by our Premier Recovery Engine&apos;s advanced algorithms.
                 </p>
               </div>
 
-              <div className="p-4 sm:p-6 bg-gray-800/50 rounded-xl border border-green-500/30">
-                <h5 className="text-lg sm:text-xl font-semibold text-green-300 mb-2">5. Full Recovery Guarantee</h5>
-                <p className="text-gray-300 text-sm sm:text-base">
-                  We are committed to restoring your complete investment. The process remains active until 100% of your funds have been returned.
+              <div className="p-6 sm:p-8 bg-slate-700/30 rounded-2xl border border-emerald-500/30">
+                <h5 className="text-xl sm:text-2xl font-semibold text-emerald-300 mb-4">5. Complete Portfolio Rehabilitation</h5>
+                <p className="text-slate-200 text-base sm:text-lg">
+                  Our commitment extends until full portfolio value recovery is achieved. The Premier Recovery Engine maintains active rehabilitation protocols until 100% of assessed portfolio value has been systematically restored.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-gray-700 pt-6 sm:pt-8 mb-6 sm:mb-8">
-            <div className="flex items-center space-x-3 mb-4 sm:mb-6">
-              <Bot className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
-              <h4 className="text-xl sm:text-2xl font-bold text-white">💡 Why ChainMasterBot?</h4>
+          <div className="border-t border-slate-600/50 pt-8 sm:pt-10 mb-8 sm:mb-10">
+            <div className="flex items-center space-x-4 mb-6 sm:mb-8">
+              <Bot className="w-8 h-8 sm:w-10 sm:h-10 text-teal-400" />
+              <h4 className="text-2xl sm:text-3xl font-bold text-white">Premier Recovery Engine Advantages</h4>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-              <div className="text-center p-4 bg-gray-800/50 rounded-xl border border-blue-500/30">
-                <Lock className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 mx-auto mb-2" />
-                <h5 className="text-base sm:text-lg font-semibold text-blue-300 mb-2">Secure & Automated</h5>
-                <p className="text-gray-400 text-sm">Ensures accurate and tamper-proof payouts</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+              <div className="text-center p-6 bg-slate-700/30 rounded-2xl border border-teal-500/30">
+                <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-teal-400 mx-auto mb-4" />
+                <h5 className="text-lg sm:text-xl font-semibold text-teal-300 mb-3">Institutional Security</h5>
+                <p className="text-slate-400 text-base">Bank-grade security protocols with encrypted transaction processing</p>
               </div>
               
-              <div className="text-center p-4 bg-gray-800/50 rounded-xl border border-blue-500/30">
-                <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 mx-auto mb-2" />
-                <h5 className="text-base sm:text-lg font-semibold text-blue-300 mb-2">Performance-Driven</h5>
-                <p className="text-gray-400 text-sm">Uses smart logic to accelerate recovery timelines</p>
+              <div className="text-center p-6 bg-slate-700/30 rounded-2xl border border-teal-500/30">
+                <BarChart3 className="w-8 h-8 sm:w-10 sm:h-10 text-teal-400 mx-auto mb-4" />
+                <h5 className="text-lg sm:text-xl font-semibold text-teal-300 mb-3">AI-Optimized Recovery</h5>
+                <p className="text-slate-400 text-base">Machine learning algorithms optimize recovery timelines and efficiency</p>
               </div>
               
-              <div className="text-center p-4 bg-gray-800/50 rounded-xl border border-blue-500/30">
-                <Eye className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 mx-auto mb-2" />
-                <h5 className="text-base sm:text-lg font-semibold text-blue-300 mb-2">Client Dashboard</h5>
-                <p className="text-gray-400 text-sm">Real-time tracking of recovery milestones</p>
+              <div className="text-center p-6 bg-slate-700/30 rounded-2xl border border-teal-500/30">
+                <Eye className="w-8 h-8 sm:w-10 sm:h-10 text-teal-400 mx-auto mb-4" />
+                <h5 className="text-lg sm:text-xl font-semibold text-teal-300 mb-3">Comprehensive Reporting</h5>
+                <p className="text-slate-400 text-base">Real-time portfolio rehabilitation tracking and milestone reporting</p>
               </div>
             </div>
           </div>
 
           <div className="text-center">
-            <h4 className="text-xl sm:text-2xl font-bold text-white mb-4">Start Your Recovery Today</h4>
-            <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6">
-              If you&apos;ve lost access to your funds or made an unproductive investment, we&apos;re here to help. Our ChainMasterBot recovery system is already helping hundreds of users recover what&apos;s rightfully theirs — 10% at a time, every month, until full restitution is made.
+            <h4 className="text-2xl sm:text-3xl font-bold text-white mb-6">Initiate Portfolio Recovery</h4>
+            <p className="text-slate-200 text-base sm:text-lg lg:text-xl leading-relaxed mb-8">
+              If your investment portfolio requires professional rehabilitation services, SmartVest AI&apos;s Premier Recovery Engine provides institutional-grade solutions. Our systematic approach has successfully restored portfolio value for hundreds of clients through structured 8% monthly distributions until complete recovery achievement.
             </p>
+            
+            {/* Professional Trust Indicators */}
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-slate-400">
+              <div className="flex items-center space-x-2">
+                <Award className="w-5 h-5" />
+                <span className="text-base">Institutional Grade Recovery</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Target className="w-5 h-5" />
+                <span className="text-base">Systematic Value Restoration</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Shield className="w-5 h-5" />
+                <span className="text-base">Regulatory Compliant</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

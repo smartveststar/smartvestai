@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { Copy } from "lucide-react";
+import React, { useState, useEffect } from 'react';
+import { Copy } from 'lucide-react';
 
 interface CryptoCurrency {
   id: number;
@@ -21,7 +21,6 @@ export default function CryptoPaymentDetails({ selectedCoin, setSelectedCoin }: 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch crypto currencies on component mount
   useEffect(() => {
     const fetchCryptos = async () => {
       try {
@@ -54,30 +53,30 @@ export default function CryptoPaymentDetails({ selectedCoin, setSelectedCoin }: 
 
   if (loading) {
     return (
-      <div className="bg-slate-800 p-6 rounded-lg">
-        <p className="text-gray-300">Loading cryptocurrencies...</p>
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6">
+        <p className="text-gray-900 dark:text-gray-300 text-sm">Loading cryptocurrencies...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="bg-slate-800 p-6 rounded-lg">
-        <p className="text-red-400">Error: {error}</p>
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6">
+        <p className="text-red-800 dark:text-red-300 text-sm">Error: {error}</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-slate-800 p-6 rounded-lg">
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-300 mb-2">
-          Select Crypto:
+    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6 space-y-6">
+      <div>
+        <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">
+          Select Crypto *
         </label>
         <select
           value={selectedCoin}
           onChange={(e) => setSelectedCoin(e.target.value)}
-          className="w-full bg-slate-700 text-white rounded px-4 py-2 mt-1"
+          className="w-full bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm"
         >
           <option value="">-- Select --</option>
           {cryptos.map((crypto) => (
@@ -90,30 +89,30 @@ export default function CryptoPaymentDetails({ selectedCoin, setSelectedCoin }: 
 
       {selectedCoin && selectedCrypto && (
         <>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-300 mb-2">
-              Wallet Address:
+          <div>
+            <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">
+              Wallet Address
             </label>
-            <div className="flex items-center space-x-2">
-              <code className="bg-slate-700 px-3 py-2 rounded text-sm flex-1 break-all">
+            <div className="flex items-center gap-2 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-600">
+              <code className="flex-1 bg-gray-50 dark:bg-gray-700 px-4 py-2 text-sm text-gray-900 dark:text-white break-all">
                 {selectedCrypto.wallet_address}
               </code>
               <button
                 onClick={handleCopy}
-                className="p-2 bg-blue-600 hover:bg-blue-700 rounded"
+                className="bg-green-800 hover:bg-green-900 text-white px-3 py-2 transition-all duration-300"
               >
-                <Copy size={16} />
+                <Copy className="w-4 h-4" />
               </button>
             </div>
             {copied && (
-              <p className="text-green-400 text-sm mt-1">Address copied!</p>
+              <p className="text-green-800 dark:text-green-300 text-sm mt-1">Address copied!</p>
             )}
           </div>
 
           {selectedCrypto.qr_code_image && (
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Scan QR Code:
+            <div>
+              <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">
+                Scan QR Code
               </label>
               <div className="flex justify-center">
                 <img
@@ -121,21 +120,19 @@ export default function CryptoPaymentDetails({ selectedCoin, setSelectedCoin }: 
                   alt={`${selectedCrypto.name} QR Code`}
                   width={200}
                   height={200}
-                  className="border rounded"
+                  className="border border-gray-200 dark:border-gray-600 rounded-xl"
                 />
               </div>
             </div>
           )}
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-300 mb-2">
-              After transferring the crypto, upload a screenshot or photo of your proof of payment:
+          <div>
+            <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">
+              Payment Instructions
             </label>
-            <input
-              type="file"
-              accept="image/*"
-              className="w-full bg-slate-700 text-white rounded px-4 py-2"
-            />
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              After transferring the crypto, upload a screenshot or photo of your proof of payment
+            </p>
           </div>
         </>
       )}

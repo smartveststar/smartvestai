@@ -1,104 +1,162 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
-import {
-  LayoutDashboardIcon,
-  GroupIcon,
-  BriefcaseIcon,
-  UserIcon,
-  ChevronDown,
-  ChevronUp
-} from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { navLinks } from '@/config/navLinks';
+import { socialLinks } from '@/config/socialLinks';
+import { useUser, SignOutButton } from '@clerk/nextjs';
+import { getUserData } from '@/lib/actions/GetUserData'; // Update this path
+import Image from 'next/image';
+import Link from 'next/link'
 
-// Loading Spinner Component
-const LoadingOverlay = () => (
-  <div className="fixed inset-0 bg-opacity-30 flex items-center justify-center z-[60]">
-    <div className="rounded-lg p-4 shadow-lg">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
-    </div>
-  </div>
-);
+export default function NavBar() {
+  const { user } = useUser();
+  const [isOpen, setIsOpen] = useState(false);
+  const [greeting, setGreeting] = useState('');
+  const [avatar, setAvatar] = useState<string | null>(null);
+  const [username, setUsername] = useState<string>('');
 
-export default function Nav() {
-  const pathname = usePathname();
-  const router = useRouter();
-  const [visible, setVisible] = useState(true);
-  const [loading, setLoading] = useState(false);
+  // Time-based greeting
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour < 12) setGreeting('🌤️ Good Morning ');
+    else if (hour < 16) setGreeting('🌞 Good Afternoon ');
+    else setGreeting('🌙 Good Evening ');
+  }, []);
 
-  const handleNavigation = (href: string) => {
-    if (pathname !== href) {
-      setLoading(true);
-      router.push(href);
-      // Hide loading after navigation completes
-      setTimeout(() => setLoading(false), 800);
+  // Fetch user data from database using server action
+  useEffect(() => {
+    if (user?.id) {
+      getUserData(user.id)
+        .then((userData) => {
+          console.log('User Data:', userData); // Debug log
+          if (userData) {
+            // Clean and validate avatar URL
+            const avatarUrl = userData.avatar && typeof userData.avatar === 'string' 
+              ? userData.avatar.trim() 
+              : null;
+            
+            setAvatar(avatarUrl || user.imageUrl || null);
+            setUsername(userData.username || '');
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching user data:', error);
+          setAvatar(user?.imageUrl || null);
+          setUsername('');
+        });
     }
-  };
+  }, [user]);
+
+  const toggleSidebar = () => setIsOpen(!isOpen);
+
+  const fallbackInitial = username ? username.charAt(0).toUpperCase() : '';
 
   return (
     <>
-      {loading && <LoadingOverlay />}
-      
-      <div className="fixed bottom-0 w-full z-50">
-        {/* Toggle Button */}
-        <div className="w-full flex justify-center mb-1">
+      {/* Top Navigation Bar */}
+      <div className="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-40 flex items-center justify-between">
+        {/* Menu Toggle Button and Greeting */}
+        <div className="flex items-center">
           <button
-            onClick={() => setVisible(!visible)}
-            className="bg-white dark:bg-slate-900 border rounded-full shadow px-2 py-1"
+            onClick={toggleSidebar}
+            className="ml-4 p-3 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg shadow-md hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 dark:focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-all duration-200 transform hover:scale-105"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
-            {visible ? <ChevronDown className="w-5 h-5" /> : <ChevronUp className="w-5 h-5" />}
+            <div className="transition-transform duration-200">
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </div>
           </button>
+          <h1 className="ml-4 text-sm font-bold text-gray-800 dark:text-gray-200">
+            {greeting}, @{username || 'Loading...'} 
+          </h1>
         </div>
 
-        {/* Drawer Nav */}
-        <nav
-          className={`w-full rounded-t-lg backdrop-blur-sm bg-white dark:bg-slate-900 shadow-lg border-t border-white transition-all duration-300 ${
-            visible ? 'translate-y-0' : 'translate-y-full'
-          }`}
-        >
-          <div className="max-w-lg mx-auto flex justify-around text-white dark:text-slate-400 items-center h-16">
-            <button
-              onClick={() => handleNavigation('/dashboard')}
-              className={`flex-1 flex flex-col justify-center items-center h-full transition-colors text-slate-600 dark:text-slate-400 ${
-                pathname === '/dashboard' ? 'text-blue-700' : 'hover:text-slate-700'
-              }`}
-            >
-              <LayoutDashboardIcon className="w-5 h-5 mb-1" />
-              <span className="text-xs">Dashboard</span>
-            </button>
-
-            <button
-              onClick={() => handleNavigation('/dashboard/referrals')}
-              className={`flex-1 flex flex-col justify-center items-center h-full transition-colors text-slate-600 dark:text-slate-400 ${
-                pathname === '/dashboard/referrals' ? 'text-blue-700' : 'hover:text-slate-700'
-              }`}
-            >
-              <GroupIcon className="w-5 h-5 mb-1" />
-              <span className="text-xs">Referrals</span>
-            </button>
-
-            <button
-              onClick={() => handleNavigation('/dashboard/invest')}
-              className={`flex-1 flex flex-col justify-center items-center h-full transition-colors text-slate-600 dark:text-slate-400 ${
-                pathname === '/dashboard/invest' ? 'text-blue-700' : 'hover:text-slate-700'
-              }`}
-            >
-              <BriefcaseIcon className="w-5 h-5 mb-1" />
-              <span className="text-xs">Invest</span>
-            </button>
-
-            <button
-              onClick={() => handleNavigation('/dashboard/portfolio')}
-              className={`flex-1 flex flex-col justify-center items-center h-full transition-colors text-slate-600 dark:text-slate-400 ${
-                pathname === '/dashboard/portfolio' ? 'text-blue-700' : 'hover:text-slate-700'
-              }`}
-            >
-              <UserIcon className="w-5 h-5 mb-1" />
-              <span className="text-xs">Portfolio</span>
-            </button>
+        {/* Avatar or Initial */}
+        {user && (
+          <div className="mr-4">
+            {avatar ? (
+              <Image
+                src={avatar}
+                alt="User avatar"
+                width={40}
+                height={40}
+                className="rounded-full"
+                onError={() => setAvatar(null)} // Fallback if image fails to load
+              />
+            ) : (
+              <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center text-lg font-bold">
+                {fallbackInitial}
+              </div>
+            )}
           </div>
-        </nav>
+        )}
       </div>
+
+      {/* Sidebar */}
+      <div
+        className={`fixed top-0 left-0 h-full w-65 bg-white dark:bg-gray-800 shadow-2xl transform transition-all duration-300 ease-in-out z-50 ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <div className="bg-white dark:bg-gray-800 p-6 border-b border-gray-200 dark:border-gray-700">
+          <h1 className="text-sm p-2 text-gray-600 dark:text-gray-200">Follow us</h1>
+          <div className="flex space-x-4">
+            {socialLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors duration-200"
+                aria-label={link.name}
+              >
+                <link.icon size={24} />
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="p-2">
+          <nav className="mt-2">
+            <ul className="space-y-1">
+              {navLinks.map((link) => (
+                <li key={link.href} className="relative">
+                  <Link
+                    href={link.href}
+                    className="flex items-center px-2 py-4 text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all duration-200 group"
+                    onClick={toggleSidebar}
+                  >
+                    <div className="flex-shrink-0 mr-8 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-200">
+                      <link.icon size={18} />
+                    </div>
+                    <span className="text-sm">{link.name}</span>
+                    <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-100 dark:border-gray-600">
+        <SignOutButton>
+            <button className=" py-4 bg-green-900 dark:bg-green-500 text-white dark:text-gray-900 w-full rounded-lg hover:bg-slate-500">
+              Log Out
+            </button>
+          </SignOutButton>
+          <div className="text-center mt-4">
+            <p className="text-xs text-gray-500 dark:text-gray-400">SmartVest AI v1.4.7</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+          onClick={toggleSidebar}
+          aria-hidden="true"
+        />
+      )}
     </>
   );
 }

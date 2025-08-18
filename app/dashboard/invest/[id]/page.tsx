@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import CryptoPaymentDetails from '@/components/CryptoPaymentDetails';
+import { ArrowLeft, Check } from 'lucide-react';
 
 export default function BotInvestPage({ params }: { params: Promise<{ id: string }> }) {
   const { user } = useUser();
@@ -19,10 +20,8 @@ export default function BotInvestPage({ params }: { params: Promise<{ id: string
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Unwrap params using React.use()
   const { id } = React.use(params);
 
-  // Get bot info
   useEffect(() => {
     const fetchBot = async () => {
       const res = await fetch(`/api/bots/${id}`);
@@ -32,12 +31,9 @@ export default function BotInvestPage({ params }: { params: Promise<{ id: string
     fetchBot();
   }, [id]);
 
-  // Get user balance
   useEffect(() => {
     const getBalance = async () => {
       if (!user?.id) return;
-
-      // Get user balance
       const userRes = await fetch(`/api/user/balance?clerkId=${user.id}`);
       const userData = await userRes.json();
       setUserBalance(userData.balance || 0);
@@ -99,62 +95,79 @@ export default function BotInvestPage({ params }: { params: Promise<{ id: string
 
   if (!bot || !user) {
     return (
-      <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center">
-        Loading...
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
+        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-8 text-gray-900 dark:text-white text-lg">
+          Loading...
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white px-6 py-10 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Review and Confirm Investment</h1>
+    <div className="w-full max-w-6xl mx-auto space-y-2 p-2">
+      {/* Header Section */}
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6 mb-4">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2 tracking-tight">
+          Review and Confirm Investment
+        </h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Complete your investment details for {bot.name}
+        </p>
+      </div>
 
+      {/* Status Messages */}
       {submitStatus === 'success' && (
-        <div className="bg-green-600 p-4 rounded-lg mb-6">
-          ✅ Investment submitted successfully! Redirecting to dashboard...
+        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/30 rounded-xl p-6 mb-6">
+          <div className="flex items-center gap-2 text-green-800 dark:text-green-300">
+            <Check className="w-5 h-5" />
+            <span>Investment submitted successfully! Redirecting to dashboard...</span>
+          </div>
         </div>
       )}
-
       {submitStatus === 'error' && (
-        <div className="bg-red-600 p-4 rounded-lg mb-6">
-          ❌ {errorMessage}
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/30 rounded-xl p-6 mb-6">
+          <div className="flex items-center gap-2 text-red-800 dark:text-red-300">
+            <span>❌ {errorMessage}</span>
+          </div>
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-slate-800 p-6 rounded-xl space-y-4">
-        <div>
-          <p className="text-sm text-gray-400">Schema:</p>
-          <div className="bg-slate-700 px-4 py-2 rounded mt-1">{bot.name}</div>
+      {/* Form Section */}
+      <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+            <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Bot Type</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">{bot.name}</div>
+          </div>
+          <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+            <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Investment Range</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">{bot.investment_range}</div>
+          </div>
+        </div>
+
+        <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+          <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Description</div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">{bot.description}</div>
         </div>
 
         <div>
-          <p className="text-sm text-gray-400">Description:</p>
-          <div className="bg-slate-700 px-4 py-2 rounded mt-1">{bot.description}</div>
-        </div>
-
-        <div>
-          <p className="text-sm text-gray-400">Investment Range:</p>
-          <div className="bg-slate-700 px-4 py-2 rounded mt-1">{bot.investment_range}</div>
-        </div>
-
-        <div>
-          <label className="text-sm text-gray-400">Enter Amount *:</label>
-          <div className="flex rounded overflow-hidden mt-1">
+          <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">Enter Amount *</label>
+          <div className="flex rounded-xl overflow-hidden border border-gray-200 dark:border-gray-600">
             <input
               type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="flex-1 bg-slate-700 px-4 py-2 outline-none text-white"
+              className="flex-1 bg-gray-50 dark:bg-gray-700 px-4 py-2 outline-none text-gray-900 dark:text-white text-sm"
               required
             />
-            <span className="bg-blue-600 px-3 flex items-center">USD</span>
+            <span className="bg-green-800 text-white px-3 flex items-center text-sm">USD</span>
           </div>
         </div>
 
         <div>
-          <label className="text-sm text-gray-400">Select Wallet *:</label>
+          <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">Select Wallet *</label>
           <select
-            className="bg-slate-700 px-4 py-2 rounded w-full mt-1 text-white"
+            className="bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-xl w-full border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm"
             value={selectedWallet}
             onChange={(e) => setSelectedWallet(e.target.value)}
             required
@@ -169,42 +182,44 @@ export default function BotInvestPage({ params }: { params: Promise<{ id: string
           <>
             <CryptoPaymentDetails selectedCoin={selectedCoin} setSelectedCoin={setSelectedCoin} />
             <div>
-              <label className="text-sm text-gray-400">Upload Payment Proof *:</label>
+              <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">Upload Payment Proof *</label>
               <input
                 type="file"
                 onChange={(e) => setProof(e.target.files?.[0] || null)}
                 accept="image/*"
-                className="w-full bg-slate-700 px-4 py-2 rounded mt-1 text-white"
+                className="w-full bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm"
                 required
               />
             </div>
           </>
         )}
 
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <div>
-            <p className="text-sm text-gray-400">Capital Back:</p>
-            <p>{bot.capital_back}</p>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+            <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Capital Back</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">{bot.capital_back}</div>
           </div>
-          <div>
-            <p className="text-sm text-gray-400">Return Type:</p>
-            <p>{bot.return_type}</p>
+          <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+            <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Return Type</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">{bot.return_type}</div>
           </div>
         </div>
 
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between gap-4 mt-6">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg"
+            className="flex-1 flex items-center justify-center gap-3 px-6 py-3 text-white bg-green-800 hover:bg-green-900 disabled:bg-green-800/50 disabled:cursor-not-allowed rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
           >
-            {isSubmitting ? 'Processing...' : '✓ Invest Now'}
+            <Check className="w-4 h-4" />
+            {isSubmitting ? 'Processing...' : 'Invest Now'}
           </button>
           <button
             type="button"
-            className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg"
+            className="flex-1 flex items-center justify-center gap-3 px-6 py-3 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-xl font-medium bg-white dark:bg-gray-800"
             onClick={() => router.back()}
           >
+            <ArrowLeft className="w-4 h-4" />
             Cancel
           </button>
         </div>

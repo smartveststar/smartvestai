@@ -10,7 +10,6 @@ import { processCompletedInvestments } from '@/lib/actions/processCompletedInves
 
 import BalanceDisplay from '@/components/dashboard/DisplayBalance';
 import DashboardHeader from '@/components/dashboard/DashboardHeader';
-import ProfitSummaryCard from '@/components/dashboard/ProfitSummaryCard';
 import InvestmentsList from '@/components/dashboard/InvestmentsList';
 import RecentEarningsList from '@/components/dashboard/RecentEarningsList';
 import QuickActionButtons from '@/components/dashboard/QuickActionButtons';
@@ -80,7 +79,7 @@ export default function Home() {
             ? 'Referral'
             : transaction.type === 'investment'
             ? 'Investment'
-            : transaction.type === 'manual_deposit'
+            : transaction.type === 'deposit'
             ? 'Deposit'
             : transaction.type === 'withdraw'
             ? 'Withdrawal'
@@ -123,20 +122,13 @@ export default function Home() {
   if (!dashboardData) return <ErrorScreen message="Unable to load dashboard data" />;
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
-      <div className="max-w-md mx-auto bg-white dark:bg-slate-900 min-h-screen relative">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-2 space-y-4">
         {refreshing && (
           <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-black dark:border-white"></div>
           </div>
         )}
-
-        <div className="overflow-y-auto">
           <DashboardHeader
-            avatar={dashboardData.avatar ?? undefined}
-            userInitial={dashboardData.userInitial}
-            totalBalance={dashboardData.totalBalance}
-            username={dashboardData.username ?? 'User'}
             onRefresh={onRefresh}
           />
 
@@ -146,7 +138,6 @@ export default function Home() {
           />
 
           <QuickActionButtons />
-          <ProfitSummaryCard profit={dashboardData.profitBalance} />
 
           <BotListSection />
 
@@ -156,8 +147,6 @@ export default function Home() {
           {dashboardData.recentEarnings.length > 0 && (
             <RecentEarningsList earnings={dashboardData.recentEarnings} />
           )}
-        </div>
-      </div>
     </div>
   );
 }

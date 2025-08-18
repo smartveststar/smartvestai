@@ -2,166 +2,179 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Brain, TrendingUp, ArrowRight, Bot, DollarSign, Zap, Shield, Target, Clock } from 'lucide-react';
+import { Brain, TrendingUp, ArrowRight, Bot, DollarSign, BarChart3, Shield, Target, Clock, Award } from 'lucide-react';
 import InstallButton from './InstallButton';
 
-export default function SignedInOnboarding() {
+export default function SmartVestOnboarding() {
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
-      {/* Animated Background - Optimized for mobile */}
-      <div className="absolute inset-0 opacity-20 sm:opacity-30">
-        <div className="absolute top-8 left-2 w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-16 right-2 w-20 h-20 sm:w-24 sm:h-24 lg:w-36 lg:h-36 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-8 left-4 w-22 h-22 sm:w-28 sm:h-28 lg:w-40 lg:h-40 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
-        <div className="absolute bottom-16 right-6 w-18 h-18 sm:w-20 sm:h-20 lg:w-32 lg:h-32 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-3000"></div>
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 overflow-hidden">
+      {/* Sophisticated Background Elements */}
+      <div className="absolute inset-0 opacity-15 sm:opacity-20">
+        <div className="absolute top-8 left-2 w-28 h-28 sm:w-36 sm:h-36 lg:w-52 lg:h-52 bg-emerald-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div className="absolute top-16 right-2 w-24 h-24 sm:w-32 sm:h-32 lg:w-44 lg:h-44 bg-teal-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-8 left-4 w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 bg-slate-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute bottom-16 right-6 w-20 h-20 sm:w-28 sm:h-28 lg:w-40 lg:h-40 bg-gray-700 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-3000"></div>
       </div>
 
-      {/* Neon Grid Background - Reduced on mobile */}
-      <div className="absolute inset-0 opacity-5 sm:opacity-10">
-        <div className="h-full w-full bg-gradient-to-br from-transparent via-blue-500/20 to-transparent"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24%,rgba(59,130,246,0.3)_25%,rgba(59,130,246,0.3)_26%,transparent_27%,transparent_74%,rgba(59,130,246,0.3)_75%,rgba(59,130,246,0.3)_76%,transparent_77%,transparent)] bg-[length:60px_60px] sm:bg-[length:100px_100px]"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_24%,rgba(59,130,246,0.3)_25%,rgba(59,130,246,0.3)_26%,transparent_27%,transparent_74%,rgba(59,130,246,0.3)_75%,rgba(59,130,246,0.3)_76%,transparent_77%,transparent)] bg-[length:60px_60px] sm:bg-[length:100px_100px]"></div>
+      {/* Professional Grid Pattern */}
+      <div className="absolute inset-0 opacity-5 sm:opacity-8">
+        <div className="h-full w-full bg-gradient-to-br from-transparent via-emerald-500/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24%,rgba(148,163,184,0.2)_25%,rgba(148,163,184,0.2)_26%,transparent_27%,transparent_74%,rgba(148,163,184,0.2)_75%,rgba(148,163,184,0.2)_76%,transparent_77%,transparent)] bg-[length:70px_70px] sm:bg-[length:90px_90px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_24%,rgba(148,163,184,0.2)_25%,rgba(148,163,184,0.2)_26%,transparent_27%,transparent_74%,rgba(148,163,184,0.2)_75%,rgba(148,163,184,0.2)_76%,transparent_77%,transparent)] bg-[length:70px_70px] sm:bg-[length:90px_90px]"></div>
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-3 sm:px-4 py-6 sm:py-8 text-center">
-        {/* Welcome Back Section - Improved mobile spacing */}
-        <div className="mb-4 sm:mb-6 lg:mb-8 flex items-center space-x-2 sm:space-x-3">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg sm:rounded-xl lg:rounded-2xl flex items-center justify-center shadow-2xl shadow-cyan-500/50">
-            <Brain className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-white" />
+        {/* Professional Welcome Section */}
+        <div className="mb-6 sm:mb-8 lg:mb-10 flex items-center space-x-3 sm:space-x-4">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-emerald-600 via-teal-700 to-slate-800 rounded-2xl lg:rounded-3xl flex items-center justify-center shadow-2xl shadow-emerald-500/40 border border-emerald-500/20">
+            <Brain className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
           </div>
           <div className="text-left">
             <InstallButton />
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Welcome Back!</h1>
-            <p className="text-cyan-300 text-xs sm:text-sm lg:text-base font-medium">Ready to grow your wealth?</p>
+            <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white tracking-tight">Welcome Back</h1>
+            <p className="text-emerald-300 text-sm sm:text-base lg:text-lg font-medium">Your portfolio awaits optimization</p>
           </div>
         </div>
 
-        {/* Headline & Subtext - Better mobile typography */}
-        <div className="max-w-2xl mx-auto mb-6 sm:mb-8 lg:mb-12 px-2">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 leading-tight">
-            Your AI Investment
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent block drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">
-              Dashboard Awaits
+        {/* Sophisticated Headline */}
+        <div className="max-w-3xl mx-auto mb-8 sm:mb-10 lg:mb-14 px-2">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
+            Your Investment
+            <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent block drop-shadow-[0_0_25px_rgba(16,185,129,0.4)]">
+              Command Center
             </span>
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-300 leading-relaxed mb-4 sm:mb-6 lg:mb-8">
-            Track your portfolio performance, discover new opportunities, and let our AI guide your investment decisions.
+          <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-200 leading-relaxed mb-6 sm:mb-8 lg:mb-10">
+            Monitor portfolio performance, access AI-driven insights, and optimize your wealth-building strategy through our sophisticated investment platform.
           </p>
         </div>
 
-        {/* Dashboard Preview Cards - Improved mobile layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 max-w-4xl mx-auto mb-6 sm:mb-8 lg:mb-12 w-full px-2">
-          <div className="bg-gray-900/60 backdrop-blur-lg rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border border-gray-700 shadow-2xl shadow-blue-500/10">
-            <div className="flex items-center justify-between mb-2 sm:mb-3 lg:mb-4">
-              <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white">Portfolio Value</h3>
-              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+        {/* Premium Dashboard Preview Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto mb-8 sm:mb-10 lg:mb-14 w-full px-2">
+          <div className="bg-gradient-to-br from-slate-800/70 to-gray-900/70 backdrop-blur-lg rounded-2xl p-4 sm:p-6 lg:p-8 border border-slate-700/50 shadow-2xl shadow-emerald-900/20">
+            <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
+              <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white">Portfolio Value</h3>
+              <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
             </div>
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2">$12,847.92</div>
-            <div className="text-cyan-400 text-xs sm:text-sm">+15.7% this month</div>
+            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">$24,389.75</div>
+            <div className="text-emerald-400 text-sm sm:text-base font-medium">+18.3% quarterly growth</div>
           </div>
 
-          <div className="bg-gray-900/60 backdrop-blur-lg rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border border-gray-700 shadow-2xl shadow-blue-500/10">
-            <div className="flex items-center justify-between mb-2 sm:mb-3 lg:mb-4">
-              <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white">AI Recommendations</h3>
-              <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+          <div className="bg-gradient-to-br from-slate-800/70 to-gray-900/70 backdrop-blur-lg rounded-2xl p-4 sm:p-6 lg:p-8 border border-slate-700/50 shadow-2xl shadow-emerald-900/20">
+            <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
+              <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white">AI Insights</h3>
+              <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-teal-400" />
             </div>
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2">7 New</div>
-            <div className="text-blue-400 text-xs sm:text-sm">High-confidence signals</div>
+            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">12 Active</div>
+            <div className="text-teal-400 text-sm sm:text-base font-medium">High-probability signals</div>
           </div>
 
-          <div className="bg-gray-900/60 backdrop-blur-lg rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border border-gray-700 shadow-2xl shadow-blue-500/10 sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center justify-between mb-2 sm:mb-3 lg:mb-4">
-              <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white">Active Bots</h3>
-              <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-400" />
+          <div className="bg-gradient-to-br from-slate-800/70 to-gray-900/70 backdrop-blur-lg rounded-2xl p-4 sm:p-6 lg:p-8 border border-slate-700/50 shadow-2xl shadow-emerald-900/20 sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
+              <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white">Active Solutions</h3>
+              <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 text-slate-400" />
             </div>
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2">3 Running</div>
-            <div className="text-indigo-400 text-xs sm:text-sm">Generating returns</div>
+            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">2 Running</div>
+            <div className="text-slate-400 text-sm sm:text-base font-medium">Optimizing returns</div>
           </div>
         </div>
 
-        {/* Quick Stats - Mobile-first grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 lg:gap-4 max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-12 w-full px-2">
-          <div className="bg-gray-800/50 backdrop-blur-lg rounded-lg sm:rounded-xl p-2 sm:p-3 lg:p-4 border border-gray-700 text-center">
-            <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-green-400 mx-auto mb-1 sm:mb-2" />
-            <div className="text-base sm:text-lg lg:text-xl font-bold text-white">$99</div>
-            <div className="text-xs sm:text-sm text-gray-400">Min Investment</div>
+        {/* Professional Performance Metrics */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-4xl mx-auto mb-8 sm:mb-10 lg:mb-14 w-full px-2">
+          <div className="bg-slate-800/60 backdrop-blur-lg rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border border-slate-700/50 text-center">
+            <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-emerald-400 mx-auto mb-2 sm:mb-3" />
+            <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">$150</div>
+            <div className="text-xs sm:text-sm text-slate-400">Min Investment</div>
           </div>
-          <div className="bg-gray-800/50 backdrop-blur-lg rounded-lg sm:rounded-xl p-2 sm:p-3 lg:p-4 border border-gray-700 text-center">
-            <Target className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-cyan-400 mx-auto mb-1 sm:mb-2" />
-            <div className="text-base sm:text-lg lg:text-xl font-bold text-white">10%</div>
-            <div className="text-xs sm:text-sm text-gray-400">Monthly ROI</div>
+          <div className="bg-slate-800/60 backdrop-blur-lg rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border border-slate-700/50 text-center">
+            <Target className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-teal-400 mx-auto mb-2 sm:mb-3" />
+            <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">8-12%</div>
+            <div className="text-xs sm:text-sm text-slate-400">Annual ROI</div>
           </div>
-          <div className="bg-gray-800/50 backdrop-blur-lg rounded-lg sm:rounded-xl p-2 sm:p-3 lg:p-4 border border-gray-700 text-center">
-            <Clock className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-400 mx-auto mb-1 sm:mb-2" />
-            <div className="text-base sm:text-lg lg:text-xl font-bold text-white">24/7</div>
-            <div className="text-xs sm:text-sm text-gray-400">AI Trading</div>
+          <div className="bg-slate-800/60 backdrop-blur-lg rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border border-slate-700/50 text-center">
+            <Clock className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-emerald-400 mx-auto mb-2 sm:mb-3" />
+            <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">24/7</div>
+            <div className="text-xs sm:text-sm text-slate-400">AI Monitoring</div>
           </div>
-          <div className="bg-gray-800/50 backdrop-blur-lg rounded-lg sm:rounded-xl p-2 sm:p-3 lg:p-4 border border-gray-700 text-center">
-            <Shield className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-purple-400 mx-auto mb-1 sm:mb-2" />
-            <div className="text-base sm:text-lg lg:text-xl font-bold text-white">SEC</div>
-            <div className="text-xs sm:text-sm text-gray-400">Regulated</div>
-          </div>
-        </div>
-
-        {/* Available Bots Preview - Mobile-optimized */}
-        <div className="max-w-4xl mx-auto mb-6 sm:mb-8 lg:mb-12 w-full px-2">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4 lg:mb-6">Your Available AI Bots</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            <div className="bg-gray-900/60 backdrop-blur-lg rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-5 border border-gray-700 shadow-lg shadow-cyan-500/20">
-              <div className="flex items-center justify-between mb-2 sm:mb-3">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
-                  <Bot className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
-                </div>
-                <span className="text-xs sm:text-sm text-cyan-400 font-medium">ACTIVE</span>
-              </div>
-              <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1">GeniusInvestAiBot</h4>
-              <p className="text-xs sm:text-sm text-gray-400 mb-2">Smart Investment Made Simple</p>
-              <div className="flex justify-between text-xs sm:text-sm">
-                <span className="text-cyan-400">$99 min</span>
-                <span className="text-green-400">10% monthly</span>
-              </div>
-            </div>
-
-            <div className="bg-gray-900/60 backdrop-blur-lg rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-5 border border-gray-700 shadow-lg shadow-blue-500/20">
-              <div className="flex items-center justify-between mb-2 sm:mb-3">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg flex items-center justify-center">
-                  <Bot className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
-                </div>
-                <span className="text-xs sm:text-sm text-gray-500 font-medium">AVAILABLE</span>
-              </div>
-              <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1">AlphaInvestAIBot</h4>
-              <p className="text-xs sm:text-sm text-gray-400 mb-2">Lightspeed Elite Trading</p>
-              <div className="flex justify-between text-xs sm:text-sm">
-                <span className="text-blue-400">$9,999 min</span>
-                <span className="text-green-400">30% in 60 days</span>
-              </div>
-            </div>
-
-            <div className="bg-gray-900/60 backdrop-blur-lg rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-5 border border-gray-700 shadow-lg shadow-purple-500/20 sm:col-span-2 lg:col-span-1">
-              <div className="flex items-center justify-between mb-2 sm:mb-3">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                  <Bot className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
-                </div>
-                <span className="text-xs sm:text-sm text-gray-500 font-medium">AVAILABLE</span>
-              </div>
-              <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1">ChainMasterBot</h4>
-              <p className="text-xs sm:text-sm text-gray-400 mb-2">High-Growth + Fund Recovery</p>
-              <div className="flex justify-between text-xs sm:text-sm">
-                <span className="text-purple-400">$999 min</span>
-                <span className="text-green-400">40% in 90 days</span>
-              </div>
-            </div>
+          <div className="bg-slate-800/60 backdrop-blur-lg rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border border-slate-700/50 text-center">
+            <Shield className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-slate-400 mx-auto mb-2 sm:mb-3" />
+            <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">SEC</div>
+            <div className="text-xs sm:text-sm text-slate-400">Compliant</div>
           </div>
         </div>
 
-        {/* CTA Button - Mobile-optimized */}
-        <Link href="/dashboard" className="w-full max-w-xs sm:max-w-none sm:w-auto">
-          <button className="group relative bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl lg:rounded-2xl text-sm sm:text-base lg:text-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-2xl shadow-blue-500/50 flex items-center justify-center space-x-2 w-full sm:w-auto">
-            <span>Open Your Dashboard</span>
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+        {/* Available Investment Solutions */}
+        <div className="max-w-5xl mx-auto mb-8 sm:mb-10 lg:mb-14 w-full px-2">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 lg:mb-8">Your Investment Solutions</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="bg-gradient-to-br from-slate-800/70 to-gray-900/70 backdrop-blur-lg rounded-2xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 shadow-lg shadow-emerald-500/10">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-emerald-600 to-teal-700 rounded-xl flex items-center justify-center border border-emerald-500/30">
+                  <Bot className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+                </div>
+                <span className="text-xs sm:text-sm text-emerald-400 font-semibold px-2 py-1 bg-emerald-500/20 rounded-lg border border-emerald-500/30">ACTIVE</span>
+              </div>
+              <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">SmartVest Professional</h4>
+              <p className="text-xs sm:text-sm text-slate-400 mb-3">Intelligent Portfolio Management</p>
+              <div className="flex justify-between text-sm sm:text-base">
+                <span className="text-emerald-400 font-medium">$150 min</span>
+                <span className="text-teal-400 font-medium">8-12% annual</span>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-slate-800/70 to-gray-900/70 backdrop-blur-lg rounded-2xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 shadow-lg shadow-slate-500/10">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-slate-700 to-gray-800 rounded-xl flex items-center justify-center border border-slate-600/30">
+                  <Bot className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+                </div>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium px-2 py-1 bg-slate-600/20 rounded-lg border border-slate-600/30">AVAILABLE</span>
+              </div>
+              <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">SmartVest Elite</h4>
+              <p className="text-xs sm:text-sm text-slate-400 mb-3">Advanced Quantitative Trading</p>
+              <div className="flex justify-between text-sm sm:text-base">
+                <span className="text-slate-400 font-medium">$15,000 min</span>
+                <span className="text-slate-300 font-medium">18-25% annual</span>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-slate-800/70 to-gray-900/70 backdrop-blur-lg rounded-2xl p-4 sm:p-5 lg:p-6 border border-slate-700/50 shadow-lg shadow-amber-500/10 sm:col-span-2 lg:col-span-1">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-amber-600 to-orange-700 rounded-xl flex items-center justify-center border border-amber-500/30">
+                  <Bot className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+                </div>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium px-2 py-1 bg-slate-600/20 rounded-lg border border-slate-600/30">AVAILABLE</span>
+              </div>
+              <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">SmartVest Premier</h4>
+              <p className="text-xs sm:text-sm text-slate-400 mb-3">Wealth Optimization + Recovery</p>
+              <div className="flex justify-between text-sm sm:text-base">
+                <span className="text-amber-400 font-medium">$2,500 min</span>
+                <span className="text-orange-400 font-medium">25-35% total</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Professional CTA Button */}
+        <Link href="/dashboard" className="w-full max-w-sm sm:max-w-none sm:w-auto">
+          <button className="group relative bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-semibold py-4 sm:py-5 px-8 sm:px-10 rounded-xl lg:rounded-2xl text-base sm:text-lg lg:text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-2xl shadow-emerald-600/40 flex items-center justify-center space-x-3 w-full sm:w-auto border border-emerald-500/30">
+            <span>Access Investment Dashboard</span>
+            <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
           </button>
         </Link>
+
+        {/* Professional Trust Badge */}
+        <div className="mt-8 sm:mt-10 flex items-center justify-center space-x-4 text-slate-400">
+          <div className="flex items-center space-x-2">
+            <Award className="w-4 h-4" />
+            <span className="text-sm">Institutional Grade</span>
+          </div>
+          <div className="w-1 h-1 bg-slate-500 rounded-full"></div>
+          <div className="flex items-center space-x-2">
+            <Shield className="w-4 h-4" />
+            <span className="text-sm">SEC Compliant</span>
+          </div>
         </div>
       </div>
+    </div>
   );
 }

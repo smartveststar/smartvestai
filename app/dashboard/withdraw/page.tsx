@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
+import { ArrowLeft, Check } from 'lucide-react';
 
 export default function WithdrawMoneyPage() {
   const { user } = useUser();
@@ -19,30 +20,25 @@ export default function WithdrawMoneyPage() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Calculate withdrawal details
   const withdrawalAmount = parseFloat(amount) || 0;
-  const charges = withdrawalAmount * 0.005; // 5% charges
+  const charges = withdrawalAmount * 0.005;
   const youWillReceive = withdrawalAmount - charges;
   const selectedBalance = balanceType === 'balance' ? balance : profitBalance;
 
-  // Get user data and check for pending requests
   useEffect(() => {
     const fetchUserData = async () => {
       if (!user?.id) return;
 
       try {
-        // Get user balance and KYC status
         const userRes = await fetch(`/api/user/balance?clerkId=${user.id}`);
         const userData = await userRes.json();
         setBalance(Number(userData.balance) || 0);
         setProfitBalance(Number(userData.profit_balance) || 0);
         
-        // Get KYC status
         const kycRes = await fetch(`/api/user/kyc-status?clerkId=${user.id}`);
         const kycData = await kycRes.json();
         setIsKycVerified(kycData.isVerified);
 
-        // Check for pending withdrawal requests
         const pendingRes = await fetch(`/api/user/pending-withdrawals?clerkId=${user.id}`);
         const pendingData = await pendingRes.json();
         setHasPendingRequest(pendingData.hasPending);
@@ -59,7 +55,6 @@ export default function WithdrawMoneyPage() {
 
     const withdrawAmount = parseFloat(amount);
     
-    // Validation
     if (withdrawAmount <= 0) {
       setErrorMessage('Please enter a valid amount');
       return;
@@ -119,62 +114,76 @@ export default function WithdrawMoneyPage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center">
-        Loading...
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
+        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-8 text-gray-900 dark:text-white text-lg">
+          Loading...
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white px-6 py-10 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Withdraw Money from Wallet</h1>
+    <div className="w-full max-w-6xl mx-auto space-y-2 p-2">
+      {/* Header Section */}
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6 mb-2">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2 tracking-tight">
+          Withdraw Money from Wallet
+        </h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Withdraw funds from your main or profit balance
+        </p>
+      </div>
 
+      {/* Status Messages */}
       {!isKycVerified && (
-        <div className="bg-red-600 p-4 rounded-lg mb-6">
-          ❌ KYC verification required to withdraw funds. Please complete your KYC verification first.
-        </div>
-      )}
-
-      {hasPendingRequest && (
-        <div className="bg-yellow-600 p-4 rounded-lg mb-6">
-          ⚠️ You already have a pending withdrawal request. Please wait for admin approval.
-        </div>
-      )}
-
-      {submitStatus === 'success' && (
-        <div className="bg-green-600 p-4 rounded-lg mb-6">
-          ✅ Withdrawal request submitted successfully! Redirecting to dashboard...
-        </div>
-      )}
-
-      {submitStatus === 'error' && (
-        <div className="bg-red-600 p-4 rounded-lg mb-6">
-          ❌ {errorMessage}
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit} className="bg-slate-800 p-6 rounded-xl space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <p className="text-sm text-gray-400">Main Balance:</p>
-            <div className="bg-slate-700 px-4 py-2 rounded mt-1 text-green-400 font-semibold">
-              ${Number(balance).toFixed(2)}
-            </div>
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/30 rounded-xl p-6 mb-2">
+          <div className="flex items-center gap-2 text-red-800 dark:text-red-300">
+            <span>❌ KYC verification required to withdraw funds. Please complete your KYC verification first.</span>
           </div>
-          <div>
-            <p className="text-sm text-gray-400">Profit Balance:</p>
-            <div className="bg-slate-700 px-4 py-2 rounded mt-1 text-blue-400 font-semibold">
-              ${Number(profitBalance).toFixed(2)}
-            </div>
+        </div>
+      )}
+      {hasPendingRequest && (
+        <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800/30 rounded-xl p-6 mb-6">
+          <div className="flex items-center gap-2 text-yellow-800 dark:text-yellow-300">
+            <span>⚠️ You already have a pending withdrawal request. Please wait for admin approval.</span>
+          </div>
+        </div>
+      )}
+      {submitStatus === 'success' && (
+        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/30 rounded-xl p-6 mb-6">
+          <div className="flex items-center gap-2 text-green-800 dark:text-green-300">
+            <Check className="w-5 h-5" />
+            <span>Withdrawal request submitted successfully! Redirecting to dashboard...</span>
+          </div>
+        </div>
+      )}
+      {submitStatus === 'error' && (
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/30 rounded-xl p-6 mb-6">
+          <div className="flex items-center gap-2 text-red-800 dark:text-red-300">
+            <span>❌ {errorMessage}</span>
+          </div>
+        </div>
+      )}
+
+      {/* Form Section */}
+      <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+            <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Main Balance</div>
+            <div className="text-lg font-mono text-green-800 dark:text-green-300">${Number(balance).toFixed(2)}</div>
+          </div>
+          <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+            <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Profit Balance</div>
+            <div className="text-lg font-mono text-blue-800 dark:text-blue-300">${Number(profitBalance).toFixed(2)}</div>
           </div>
         </div>
 
         <div>
-          <label className="text-sm text-gray-400">Withdraw From *:</label>
+          <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">Withdraw From *</label>
           <select
             value={balanceType}
             onChange={(e) => setBalanceType(e.target.value as 'balance' | 'profit_balance')}
-            className="w-full bg-slate-700 px-4 py-2 rounded mt-1 text-white outline-none"
+            className="w-full bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm"
             disabled={hasPendingRequest || !isKycVerified}
           >
             <option value="balance">Main Balance (${Number(balance).toFixed(2)})</option>
@@ -183,13 +192,13 @@ export default function WithdrawMoneyPage() {
         </div>
 
         <div>
-          <label className="text-sm text-gray-400">Enter Amount to Withdraw *:</label>
-          <div className="flex rounded overflow-hidden mt-1">
+          <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">Enter Amount to Withdraw *</label>
+          <div className="flex rounded-xl overflow-hidden border border-gray-200 dark:border-gray-600">
             <input
               type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="flex-1 bg-slate-700 px-4 py-2 outline-none text-white"
+              className="flex-1 bg-gray-50 dark:bg-gray-700 px-4 py-2 outline-none text-gray-900 dark:text-white text-sm"
               placeholder="0.00"
               min="0.01"
               step="0.01"
@@ -197,22 +206,22 @@ export default function WithdrawMoneyPage() {
               required
               disabled={hasPendingRequest || !isKycVerified}
             />
-            <span className="bg-blue-600 px-3 flex items-center">USD</span>
+            <span className="bg-green-800 text-white px-3 flex items-center text-sm">USD</span>
           </div>
           {selectedBalance > 0 && (
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
               Available: ${selectedBalance.toFixed(2)}
             </p>
           )}
         </div>
 
         <div>
-          <label className="text-sm text-gray-400">Crypto Wallet Address *:</label>
+          <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">Crypto Wallet Address *</label>
           <input
             type="text"
             value={walletAddress}
             onChange={(e) => setWalletAddress(e.target.value)}
-            className="w-full bg-slate-700 px-4 py-2 rounded mt-1 text-white outline-none"
+            className="w-full bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm"
             placeholder="Enter your crypto wallet address"
             required
             disabled={hasPendingRequest || !isKycVerified}
@@ -220,12 +229,12 @@ export default function WithdrawMoneyPage() {
         </div>
 
         <div>
-          <label className="text-sm text-gray-400">Network *:</label>
+          <label className="text-sm font-semibold text-gray-900 dark:text-white mb-1 block">Network *</label>
           <input
             type="text"
             value={network}
             onChange={(e) => setNetwork(e.target.value)}
-            className="w-full bg-slate-700 px-4 py-2 rounded mt-1 text-white outline-none"
+            className="w-full bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm"
             placeholder="e.g., Bitcoin, Ethereum, BSC, Polygon"
             required
             disabled={hasPendingRequest || !isKycVerified}
@@ -233,30 +242,30 @@ export default function WithdrawMoneyPage() {
         </div>
 
         {withdrawalAmount > 0 && (
-          <div className="bg-slate-700 p-4 rounded-lg">
-            <h3 className="text-sm font-semibold mb-2">Withdrawal Summary:</h3>
+          <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Withdrawal Summary</h3>
             <div className="text-sm space-y-1">
               <div className="flex justify-between">
-                <span className="text-gray-400">Withdrawal Amount:</span>
-                <span className="text-white">${withdrawalAmount.toFixed(2)}</span>
+                <span className="text-gray-600 dark:text-gray-400">Withdrawal Amount:</span>
+                <span className="text-gray-900 dark:text-white">${withdrawalAmount.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-400">Charges (5%):</span>
-                <span className="text-red-400">-${charges.toFixed(2)}</span>
+                <span className="text-gray-600 dark:text-gray-400">Charges (0.5%):</span>
+                <span className="text-red-800 dark:text-red-300">-${charges.toFixed(2)}</span>
               </div>
-              <div className="border-t border-gray-600 pt-1 mt-2">
+              <div className="border-t border-gray-200 dark:border-gray-600 pt-1 mt-2">
                 <div className="flex justify-between font-semibold">
-                  <span className="text-gray-400">You&apos;ll Receive:</span>
-                  <span className="text-green-400">${youWillReceive.toFixed(2)}</span>
+                  <span className="text-gray-600 dark:text-gray-400">You&apos;ll Receive:</span>
+                  <span className="text-green-800 dark:text-green-300">${youWillReceive.toFixed(2)}</span>
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        <div className="bg-slate-700 p-4 rounded-lg">
-          <h3 className="text-sm font-semibold mb-2">Important Notes:</h3>
-          <ul className="text-xs text-gray-400 space-y-1">
+        <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
+          <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Important Notes</h3>
+          <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
             <li>• KYC verification is required to withdraw funds</li>
             <li>• A 0.5% charge applies to all withdrawals</li>
             <li>• Double-check your wallet address and network before submitting</li>
@@ -266,19 +275,21 @@ export default function WithdrawMoneyPage() {
           </ul>
         </div>
 
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between gap-4 mt-6">
           <button
             type="submit"
             disabled={isSubmitting || hasPendingRequest || !isKycVerified || withdrawalAmount <= 0 || withdrawalAmount > selectedBalance}
-            className="bg-red-600 hover:bg-red-700 disabled:bg-red-800 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg"
+            className="flex-1 flex items-center justify-center gap-3 px-6 py-3 text-white bg-green-800 hover:bg-green-900 disabled:bg-green-800/50 disabled:cursor-not-allowed rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 whitespace-nowrap"
           >
-            {isSubmitting ? 'Processing...' : '💸 Submit Withdrawal'}
+            <Check className="w-4 h-4" />
+            {isSubmitting ? 'Processing...' : 'Submit Withdrawal'}
           </button>
           <button
             type="button"
-            className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg"
+            className="flex-1 flex items-center justify-center gap-3 px-6 py-3 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-xl font-medium bg-white dark:bg-gray-800"
             onClick={() => router.back()}
           >
+            <ArrowLeft className="w-4 h-4" />
             Cancel
           </button>
         </div>

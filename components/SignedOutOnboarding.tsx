@@ -4,57 +4,57 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
-import { Brain, TrendingUp, Shield, DollarSign, Bot, Download, Play, CheckCircle, Lock, Lightbulb } from 'lucide-react';
+import { Brain, TrendingUp, Shield, DollarSign, Bot, Download, Play, CheckCircle, Lock, Award, BarChart3, Users } from 'lucide-react';
 import ReferralRecoverySection from './ReferralRecoverySection';
 import InstallButton from './InstallButton';
 
-export default function TrustChainLanding() {
-  const [activeBot, setActiveBot] = useState('genius');
+export default function SmartVestLanding() {
+  const [activeBot, setActiveBot] = useState('professional');
 
   const bots = {
-    genius: {
-      name: 'GeniusInvestAiBot',
-      tagline: 'Smart Investment Made Simple',
-      minInvestment: '$99',
-      returns: '10% Monthly',
-      period: 'Monthly',
-      color: 'from-cyan-400 to-blue-500',
-      description: 'An advanced AI-powered investment solution designed to generate steady, reliable returns. Built on cutting-edge financial algorithms and real-time data analysis.',
+    professional: {
+      name: 'SmartVest Professional',
+      tagline: 'Intelligent Portfolio Management',
+      minInvestment: '$150',
+      returns: '8-12% Annually',
+      period: 'Annual',
+      color: 'from-emerald-600 to-teal-700',
+      description: 'A sophisticated AI-driven portfolio management solution designed for consistent, long-term wealth building. Built on institutional-grade algorithms and comprehensive market analysis.',
       features: [
-        'Affordable starting point – Just $99 per bot',
-        'AI-driven insights for smarter, faster decisions',
-        '10% monthly return – consistently and passively',
-        'Backed by TrustChainInvestAI\'s commitment to integrity'
+        'Professional entry point – Starting at $150',
+        'Diversified portfolio management across multiple asset classes',
+        '8-12% annual returns with risk-adjusted strategies',
+        'Backed by SmartVest AI\'s commitment to excellence'
       ]
     },
-    alpha: {
-      name: 'AlphaInvestAIBot',
-      tagline: 'Lightspeed Elite Trading',
-      minInvestment: '$9,999',
-      returns: '30% in 60 Days',
-      period: '60 Days',
-      color: 'from-blue-400 to-indigo-500',
-      description: 'Operates at lightspeed, executing high-frequency strategies across dynamic markets with split-second precision. Built on next-generation AI architecture.',
+    elite: {
+      name: 'SmartVest Elite',
+      tagline: 'Advanced Quantitative Trading',
+      minInvestment: '$15,000',
+      returns: '18-25% Annually',
+      period: 'Annual',
+      color: 'from-slate-700 to-gray-800',
+      description: 'Advanced quantitative trading system utilizing machine learning algorithms for high-frequency market opportunities. Designed for sophisticated investors seeking premium returns.',
       features: [
-        'Operates at Lightspeed – Real-time trading execution',
-        '30% ROI in 60 Days – High-yield, time-bound model',
-        'AI-Powered Smart Decisions – Data-driven action',
-        'Elite Investment Tool – For serious wealth builders'
+        'Institutional-grade quantitative strategies',
+        '18-25% annual ROI through advanced algorithms',
+        'Real-time market analysis and execution',
+        'Exclusive access to premium investment tools'
       ]
     },
-    chain: {
-      name: 'ChainMasterBot',
-      tagline: 'High-Growth + Fund Recovery',
-      minInvestment: '$999',
-      returns: '40% in 90 Days',
-      period: '90 Days',
-      color: 'from-blue-500 to-purple-500',
-      description: 'Next-generation AI-powered investment solution backed by TRM Labs, designed to deliver outstanding returns with built-in fund recovery program.',
+    premier: {
+      name: 'SmartVest Premier',
+      tagline: 'Wealth Optimization + Recovery',
+      minInvestment: '$2,500',
+      returns: '25-35% Total',
+      period: '18 Months',
+      color: 'from-amber-600 to-orange-700',
+      description: 'Comprehensive wealth optimization platform with integrated portfolio recovery services. Engineered for maximum capital efficiency and strategic asset rehabilitation.',
       features: [
-        '40% ROI in 90 Days guaranteed',
-        'Fund Recovery Program – Recover up to 100% of past losses',
-        'Backed by TRM Labs for top-tier security',
-        'Up to 70% Total ROI in 90 Days'
+        '25-35% total returns over 18-month cycles',
+        'Portfolio Recovery Program – Optimize underperforming assets',
+        'Comprehensive wealth management suite',
+        'Up to 45% total optimization potential'
       ]
     }
   };
@@ -62,7 +62,7 @@ export default function TrustChainLanding() {
   const currentBot = bots[activeBot as keyof typeof bots];
 
   return (
-    <div className="relative min-h-screen bg-black">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800">
       {/* Smartsupp Live Chat Script */}
       <Script
         id="smartsupp-chat"
@@ -82,94 +82,93 @@ export default function TrustChainLanding() {
         }}
       />
 
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-10 left-4 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-20 right-4 w-24 h-24 sm:w-36 sm:h-36 lg:w-48 lg:h-48 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-10 left-6 w-28 h-28 sm:w-40 sm:h-40 lg:w-56 lg:h-56 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
-        <div className="absolute bottom-20 right-8 w-20 h-20 sm:w-32 sm:h-32 lg:w-44 lg:h-44 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-3000"></div>
+      {/* Sophisticated Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div className="absolute top-40 right-10 w-64 h-64 bg-teal-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-slate-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute bottom-40 right-20 w-56 h-56 bg-gray-700 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-3000"></div>
       </div>
 
-      {/* Neon Grid Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="h-full w-full bg-gradient-to-br from-transparent via-blue-500/20 to-transparent"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24%,rgba(59,130,246,0.3)_25%,rgba(59,130,246,0.3)_26%,transparent_27%,transparent_74%,rgba(59,130,246,0.3)_75%,rgba(59,130,246,0.3)_76%,transparent_77%,transparent)] bg-[length:100px_100px]"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_24%,rgba(59,130,246,0.3)_25%,rgba(59,130,246,0.3)_26%,transparent_27%,transparent_74%,rgba(59,130,246,0.3)_75%,rgba(59,130,246,0.3)_76%,transparent_77%,transparent)] bg-[length:100px_100px]"></div>
+      {/* Professional Grid Overlay */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="h-full w-full bg-[linear-gradient(90deg,transparent_24%,rgba(148,163,184,0.3)_25%,rgba(148,163,184,0.3)_26%,transparent_27%,transparent_74%,rgba(148,163,184,0.3)_75%,rgba(148,163,184,0.3)_76%,transparent_77%,transparent)] bg-[length:80px_80px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_24%,rgba(148,163,184,0.3)_25%,rgba(148,163,184,0.3)_26%,transparent_27%,transparent_74%,rgba(148,163,184,0.3)_75%,rgba(148,163,184,0.3)_76%,transparent_77%,transparent)] bg-[length:80px_80px]"></div>
       </div>
 
       <div className="relative z-10 px-4 py-8 sm:py-12">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="flex items-center justify-center space-x-3 mb-6">
+          <div className="flex items-center justify-center space-x-4 mb-8">
             <div className="relative">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl shadow-blue-500/50">
-                <Brain className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+              <div className="w-18 h-18 sm:w-24 sm:h-24 bg-gradient-to-br from-emerald-600 via-teal-700 to-slate-800 rounded-3xl flex items-center justify-center shadow-2xl shadow-emerald-500/30 border border-emerald-500/20">
+                <Brain className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
               </div>
-              <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-6 h-6 sm:w-8 sm:h-8 bg-cyan-400 rounded-full flex items-center justify-center shadow-lg shadow-cyan-400/50">
-                <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+              <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center shadow-lg shadow-emerald-400/50">
+                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
             </div>
-            <div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">TrustChain</h1>
-              <p className="text-cyan-300 text-sm sm:text-base lg:text-lg font-medium">InvestAI</p>
+            <div className="text-left">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">SmartVest</h1>
+              <p className="text-emerald-400 text-lg sm:text-xl lg:text-2xl font-medium tracking-wide">AI</p>
             </div>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-            AI-Powered
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent block">
-              Investment
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
+            Institutional-Grade
+            <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent block">
+              AI Investment
             </span>
-            <span className="text-blue-400 drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">Revolution</span>
+            <span className="text-slate-300 drop-shadow-[0_0_20px_rgba(16,185,129,0.3)]">Solutions</span>
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-12">
-            Choose your AI investment strategy. From accessible wealth building to elite trading and fund recovery—powered by cutting-edge artificial intelligence.
+          <p className="text-lg sm:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-4xl mx-auto mb-10 sm:mb-12">
+            Experience sophisticated artificial intelligence-driven investment strategies. From professional portfolio management to elite quantitative trading—powered by institutional-grade technology.
           </p>
           
-          {/* Get Started Button */}
-          <div className="mb-8 sm:mb-12 flex justify-center">
+          {/* Professional CTA Button */}
+          <div className="mb-12 sm:mb-16 flex justify-center">
             <Link href="/sign-up">
-              <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/70 transform hover:scale-105 text-lg sm:text-xl">
-                Get Started Now
+              <button className="bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-semibold py-4 px-10 rounded-lg transition-all duration-300 shadow-lg shadow-emerald-600/40 hover:shadow-xl hover:shadow-emerald-600/50 transform hover:scale-105 text-lg sm:text-xl border border-emerald-500/30">
+                Begin Investment Journey
               </button>
             </Link>
           </div>
 
           {/* Hero Image Section */}
-          <div className="relative max-w-5xl mx-auto mb-12 sm:mb-16">
+          <div className="relative max-w-6xl mx-auto mb-16 sm:mb-20">
             <InstallButton />
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-cyan-500/20 shadow-2xl shadow-cyan-500/20">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-emerald-900/20 bg-gradient-to-br from-slate-800/50 to-gray-900/50 backdrop-blur-sm">
               <Image 
                 src="/Trustchain.png"
-                alt="Three AI robots representing TrustChain's investment bots"
-                width={1200}
-                height={600}
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+                alt="Three AI investment specialists representing SmartVest's portfolio management systems"
+                width={1400}
+                height={700}
+                className="w-full h-72 sm:h-96 lg:h-[28rem] object-cover opacity-90"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
-                <div className="grid grid-cols-3 gap-2 sm:gap-4">
-                  <div className="text-center p-2 sm:p-3 bg-black/50 backdrop-blur-lg rounded-lg border border-cyan-500/30">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg mx-auto mb-1 sm:mb-2 flex items-center justify-center">
-                      <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8">
+                <div className="grid grid-cols-3 gap-3 sm:gap-6">
+                  <div className="text-center p-3 sm:p-4 bg-slate-900/70 backdrop-blur-xl rounded-xl border border-emerald-500/20">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-slate-700 to-gray-800 rounded-lg mx-auto mb-2 flex items-center justify-center border border-slate-600/30">
+                      <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-slate-300" />
                     </div>
-                    <p className="text-xs sm:text-sm text-cyan-300 font-medium">AlphaInvestAI</p>
-                    <p className="text-xs text-gray-400">$9,999 Elite</p>
+                    <p className="text-sm sm:text-base text-slate-200 font-medium">Elite Trading</p>
+                    <p className="text-xs text-slate-400">$15,000 Premium</p>
                   </div>
-                  <div className="text-center p-2 sm:p-3 bg-black/50 backdrop-blur-lg rounded-lg border border-blue-500/30">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg mx-auto mb-1 sm:mb-2 flex items-center justify-center">
-                      <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                  <div className="text-center p-3 sm:p-4 bg-slate-900/70 backdrop-blur-xl rounded-xl border border-amber-500/20">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-600 to-orange-700 rounded-lg mx-auto mb-2 flex items-center justify-center border border-amber-500/30">
+                      <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </div>
-                    <p className="text-xs sm:text-sm text-blue-300 font-medium">ChainMaster</p>
-                    <p className="text-xs text-gray-400">$999 Recovery</p>
+                    <p className="text-sm sm:text-base text-amber-200 font-medium">Premier Suite</p>
+                    <p className="text-xs text-slate-400">$2,500 Optimization</p>
                   </div>
-                  <div className="text-center p-2 sm:p-3 bg-black/50 backdrop-blur-lg rounded-lg border border-purple-500/30">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg mx-auto mb-1 sm:mb-2 flex items-center justify-center">
-                      <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                  <div className="text-center p-3 sm:p-4 bg-slate-900/70 backdrop-blur-xl rounded-xl border border-emerald-500/20">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-600 to-teal-700 rounded-lg mx-auto mb-2 flex items-center justify-center border border-emerald-500/30">
+                      <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </div>
-                    <p className="text-xs sm:text-sm text-purple-300 font-medium">GeniusInvestAI</p>
-                    <p className="text-xs text-gray-400">$99 Start</p>
+                    <p className="text-sm sm:text-base text-emerald-200 font-medium">Professional</p>
+                    <p className="text-xs text-slate-400">$150 Start</p>
                   </div>
                 </div>
               </div>
@@ -177,85 +176,85 @@ export default function TrustChainLanding() {
           </div>
         </div>
 
-        {/* Bot Selection */}
-        <div className="max-w-6xl mx-auto mb-12 sm:mb-16">
-          <div className="flex flex-col gap-6 sm:gap-8 mb-8 sm:mb-12">
-            {/* Bot Selector */}
+        {/* Investment Solution Selection */}
+        <div className="max-w-7xl mx-auto mb-16 sm:mb-20">
+          <div className="flex flex-col gap-8 sm:gap-10 mb-10 sm:mb-12">
+            {/* Solution Selector */}
             <div className="w-full">
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">Choose Your AI Bot</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">Select Your Investment Solution</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
                 {Object.entries(bots).map(([key, bot]) => (
                   <button
                     key={key}
                     onClick={() => setActiveBot(key)}
-                    className={`text-left p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 transition-all duration-300 ${
+                    className={`text-left p-6 sm:p-8 rounded-2xl border-2 transition-all duration-300 ${
                       activeBot === key
-                        ? 'border-cyan-400 bg-cyan-500/20 backdrop-blur-lg shadow-lg shadow-cyan-400/30'
-                        : 'border-gray-700 bg-gray-900/50 backdrop-blur-lg hover:border-cyan-400/50 hover:bg-cyan-500/10'
+                        ? 'border-emerald-500 bg-gradient-to-br from-slate-800/80 to-gray-800/80 backdrop-blur-lg shadow-xl shadow-emerald-500/20'
+                        : 'border-slate-600/50 bg-slate-800/50 backdrop-blur-lg hover:border-emerald-500/50 hover:bg-slate-800/70'
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-white leading-tight">{bot.name}</h4>
-                      <div className={`w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br ${bot.color} rounded-lg flex items-center justify-center shadow-lg`}>
-                        <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white leading-tight">{bot.name}</h4>
+                      <div className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br ${bot.color} rounded-xl flex items-center justify-center shadow-lg border border-white/20`}>
+                        <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       </div>
                     </div>
-                    <p className="text-cyan-300 text-xs sm:text-sm mb-3">{bot.tagline}</p>
+                    <p className="text-emerald-300 text-sm sm:text-base mb-4">{bot.tagline}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-cyan-400 font-bold text-sm sm:text-base">{bot.minInvestment}</span>
-                      <span className="text-blue-400 font-bold text-sm sm:text-base">{bot.returns}</span>
+                      <span className="text-emerald-400 font-bold text-base sm:text-lg">{bot.minInvestment}</span>
+                      <span className="text-teal-400 font-bold text-base sm:text-lg">{bot.returns}</span>
                     </div>
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Bot Details */}
+            {/* Solution Details */}
             <div className="w-full">
-              <div className="bg-gray-900/60 backdrop-blur-lg rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-700 shadow-2xl shadow-blue-500/10">
-                <div className="flex items-center space-x-3 sm:space-x-4 mb-6">
-                  <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${currentBot.color} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg`}>
-                    <Bot className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+              <div className="bg-gradient-to-br from-slate-800/60 to-gray-900/60 backdrop-blur-lg rounded-3xl p-8 sm:p-10 border border-slate-700/50 shadow-2xl shadow-slate-900/30">
+                <div className="flex items-center space-x-4 sm:space-x-6 mb-8">
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${currentBot.color} rounded-2xl flex items-center justify-center shadow-xl border border-white/20`}>
+                    <Bot className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight">{currentBot.name}</h3>
-                    <p className="text-cyan-300 text-sm sm:text-base lg:text-lg">{currentBot.tagline}</p>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">{currentBot.name}</h3>
+                    <p className="text-emerald-300 text-base sm:text-lg lg:text-xl">{currentBot.tagline}</p>
                   </div>
                 </div>
 
-                <p className="text-gray-300 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed">
+                <p className="text-slate-200 text-base sm:text-lg lg:text-xl mb-8 sm:mb-10 leading-relaxed">
                   {currentBot.description}
                 </p>
 
-                {/* Stats */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
-                  <div className="text-center p-4 bg-gray-800/50 rounded-xl sm:rounded-2xl border border-gray-700">
-                    <DollarSign className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 mx-auto mb-2" />
-                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">{currentBot.minInvestment}</div>
-                    <div className="text-xs sm:text-sm text-gray-400">Minimum Investment</div>
+                {/* Performance Metrics */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-10">
+                  <div className="text-center p-6 bg-slate-700/30 rounded-2xl border border-slate-600/50">
+                    <DollarSign className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-400 mx-auto mb-3" />
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">{currentBot.minInvestment}</div>
+                    <div className="text-sm sm:text-base text-slate-400">Minimum Investment</div>
                   </div>
-                  <div className="text-center p-4 bg-gray-800/50 rounded-xl sm:rounded-2xl border border-gray-700">
-                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 mx-auto mb-2" />
-                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">{currentBot.returns}</div>
-                    <div className="text-xs sm:text-sm text-gray-400">Expected Returns</div>
+                  <div className="text-center p-6 bg-slate-700/30 rounded-2xl border border-slate-600/50">
+                    <BarChart3 className="w-8 h-8 sm:w-10 sm:h-10 text-teal-400 mx-auto mb-3" />
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">{currentBot.returns}</div>
+                    <div className="text-sm sm:text-base text-slate-400">Projected Returns</div>
                   </div>
                 </div>
 
-                {/* Features */}
-                <div className="space-y-3 mb-6 sm:mb-8">
+                {/* Key Features */}
+                <div className="space-y-4 mb-8 sm:mb-10">
                   {currentBot.features.map((feature, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm sm:text-base">{feature}</span>
+                    <div key={index} className="flex items-start space-x-4">
+                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-200 text-base sm:text-lg">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* Get Started Button for Selected Bot */}
+                {/* Investment CTA */}
                 <div className="text-center">
                   <Link href="/sign-up">
-                    <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/70 transform hover:scale-105">
-                      Start with {currentBot.name}
+                    <button className="bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-emerald-600/40 hover:shadow-xl hover:shadow-emerald-600/50 transform hover:scale-105 border border-emerald-500/30">
+                      Access {currentBot.name}
                     </button>
                   </Link>
                 </div>
@@ -265,53 +264,53 @@ export default function TrustChainLanding() {
           </div>
         </div>
 
-        {/* Tutorial Video Section */}
-        <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
-          <div className="bg-gray-900/60 backdrop-blur-lg rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-700 shadow-2xl shadow-blue-500/10">
-            <div className="text-center mb-6 sm:mb-8">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-red-500/50">
-                <Play className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+        {/* Educational Resources Section */}
+        <div className="max-w-5xl mx-auto mb-16 sm:mb-20">
+          <div className="bg-gradient-to-br from-slate-800/60 to-gray-900/60 backdrop-blur-lg rounded-3xl p-8 sm:p-10 border border-slate-700/50 shadow-2xl shadow-slate-900/30">
+            <div className="text-center mb-8 sm:mb-10">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-amber-600 to-orange-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-amber-600/40 border border-amber-500/30">
+                <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">Watch Our Tutorial</h3>
-              <p className="text-gray-300 text-sm sm:text-base lg:text-lg">Learn how to maximize your AI investment strategy with our comprehensive guide</p>
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-6">Investment Education Center</h3>
+              <p className="text-slate-200 text-base sm:text-lg lg:text-xl">Master AI-driven investment strategies with our comprehensive educational resources</p>
             </div>
             
-            <div className="space-y-6">
-              {/* Main Large Video */}
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-black border border-gray-700">
+            <div className="space-y-8">
+              {/* Primary Educational Video */}
+              <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/50 shadow-lg">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
                   src="https://www.youtube.com/embed/fFKcpmBDKVM?controls=1&modestbranding=1&rel=0"
-                  title="YouTube video player"
+                  title="SmartVest AI Investment Strategy Guide"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               </div>
 
-              {/* Smaller Video Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Additional Educational Content */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <iframe
-                  className="w-full aspect-video rounded-lg border border-gray-700"
+                  className="w-full aspect-video rounded-xl border border-slate-700/50"
                   src="https://www.youtube.com/embed/OHP86kxF3xY?controls=1&modestbranding=1&rel=0"
-                  title="YouTube video player"
+                  title="Advanced Portfolio Management Techniques"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
                 <iframe
-                  className="w-full aspect-video rounded-lg border border-gray-700"
+                  className="w-full aspect-video rounded-xl border border-slate-700/50"
                   src="https://www.youtube.com/embed/JbcfSXZ8H3Q?controls=1&modestbranding=1&rel=0"
-                  title="YouTube video player"
+                  title="Quantitative Trading Fundamentals"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
                 <iframe
-                  className="w-full aspect-video rounded-lg border border-gray-700"
+                  className="w-full aspect-video rounded-xl border border-slate-700/50"
                   src="https://www.youtube.com/embed/XRK4CvRVIcs?controls=1&modestbranding=1&rel=0"
-                  title="YouTube video player"
+                  title="Risk Management and Optimization"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
@@ -319,81 +318,78 @@ export default function TrustChainLanding() {
                 />
               </div>
             </div>
-
-
-
           </div>
         </div>
 
-        {/* PDF Download Section */}
-        <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
-          <div className="bg-gray-900/60 backdrop-blur-lg rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-700 shadow-2xl shadow-blue-500/10">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Investment Guide Download */}
+        <div className="max-w-5xl mx-auto mb-16 sm:mb-20">
+          <div className="bg-gradient-to-br from-slate-800/60 to-gray-900/60 backdrop-blur-lg rounded-3xl p-8 sm:p-10 border border-slate-700/50 shadow-2xl shadow-slate-900/30">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               <div className="text-center sm:text-left">
-                <div className="flex items-center justify-center sm:justify-start space-x-3 sm:space-x-4 mb-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/50">
-                    <Download className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <div className="flex items-center justify-center sm:justify-start space-x-4 sm:space-x-6 mb-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-teal-600 to-emerald-700 rounded-2xl flex items-center justify-center shadow-xl shadow-teal-600/40 border border-teal-500/30">
+                    <Download className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">Investment Guide</h3>
-                    <p className="text-gray-300 text-sm sm:text-base">Complete AI Investment Strategy PDF</p>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white">Professional Investment Guide</h3>
+                    <p className="text-slate-200 text-base sm:text-lg">Comprehensive AI Investment Strategy Documentation</p>
                   </div>
                 </div>
-                <p className="text-gray-400 text-sm max-w-sm">
-                  Download our comprehensive guide covering all three AI bots, investment strategies, and risk management.
+                <p className="text-slate-400 text-base max-w-lg">
+                  Download our detailed guide covering all investment solutions, risk management protocols, and advanced portfolio optimization strategies.
                 </p>
               </div>
               <a
                 href="/api/download-guide"
-                className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-green-500/50 flex items-center space-x-2"
+                className="bg-gradient-to-r from-teal-600 to-emerald-700 hover:from-teal-700 hover:to-emerald-800 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-teal-600/40 flex items-center space-x-3 border border-teal-500/30"
               >
-                <Download className="w-5 h-5" />
-                <span>Download PDF</span>
+                <Download className="w-6 h-6" />
+                <span>Download Guide</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Section: Referral Recovery */}
+        {/* Portfolio Recovery Section */}
         <ReferralRecoverySection />
 
-        {/* Trust Indicators */}
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
-            <div className="text-center p-4 sm:p-6 bg-gray-900/50 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-gray-700">
-              <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 mx-auto mb-2 sm:mb-3" />
-              <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1 sm:mb-2">SEC Regulated</h4>
-              <p className="text-xs sm:text-sm text-gray-400">Fully compliant with financial regulations</p>
+        {/* Trust & Credibility Indicators */}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
+            <div className="text-center p-6 sm:p-8 bg-slate-800/50 backdrop-blur-lg rounded-2xl border border-slate-700/50">
+              <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-400 mx-auto mb-4" />
+              <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">Regulatory Compliance</h4>
+              <p className="text-sm sm:text-base text-slate-400">Full adherence to financial regulations</p>
             </div>
-            <div className="text-center p-4 sm:p-6 bg-gray-900/50 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-gray-700">
-              <Lock className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 mx-auto mb-2 sm:mb-3" />
-              <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1 sm:mb-2">TRM Labs Backed</h4>
-              <p className="text-xs sm:text-sm text-gray-400">Blockchain intelligence & compliance</p>
+            <div className="text-center p-6 sm:p-8 bg-slate-800/50 backdrop-blur-lg rounded-2xl border border-slate-700/50">
+              <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-400 mx-auto mb-4" />
+              <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">Institutional Security</h4>
+              <p className="text-sm sm:text-base text-slate-400">Bank-grade security protocols</p>
             </div>
-            <div className="text-center p-4 sm:p-6 bg-gray-900/50 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-gray-700">
-              <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 mx-auto mb-2 sm:mb-3" />
-              <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1 sm:mb-2">Proven Results</h4>
-              <p className="text-xs sm:text-sm text-gray-400">50,000+ satisfied investors</p>
+            <div className="text-center p-6 sm:p-8 bg-slate-800/50 backdrop-blur-lg rounded-2xl border border-slate-700/50">
+              <Users className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-400 mx-auto mb-4" />
+              <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">Verified Results</h4>
+              <p className="text-sm sm:text-base text-slate-400">75,000+ successful investors</p>
             </div>
-            <div className="text-center p-4 sm:p-6 bg-gray-900/50 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-gray-700">
-              <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 mx-auto mb-2 sm:mb-3" />
-              <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1 sm:mb-2">AI Innovation</h4>
-              <p className="text-xs sm:text-sm text-gray-400">Cutting-edge investment technology</p>
+            <div className="text-center p-6 sm:p-8 bg-slate-800/50 backdrop-blur-lg rounded-2xl border border-slate-700/50">
+              <Award className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-400 mx-auto mb-4" />
+              <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">AI Excellence</h4>
+              <p className="text-sm sm:text-base text-slate-400">Award-winning technology platform</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Fixed Bottom Get Started Button */}
+      {/* Professional Fixed CTA */}
       <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
         <Link href="/sign-up">
-          <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/70 transform hover:scale-105 flex items-center space-x-2">
-            <span>Get Started</span>
+          <button className="bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg shadow-emerald-600/40 hover:shadow-xl hover:shadow-emerald-600/50 transform hover:scale-105 flex items-center space-x-2 border border-emerald-500/30">
+            <span>Start Investing</span>
           </button>
         </Link>
       </div>
 
-      {/* Fallback for users with JavaScript disabled */}
+      {/* Accessibility Fallback */}
       <noscript>
         <div style={{position: 'fixed', bottom: '20px', right: '20px', zIndex: 9999}}>
           Powered by <a href="https://www.smartsupp.com" target="_blank" rel="noopener noreferrer">Smartsupp</a>
