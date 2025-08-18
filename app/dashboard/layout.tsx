@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation'
 import { AlertCircle, RefreshCw } from 'lucide-react'
 import Link from 'next/link'
 
+// Force dynamic rendering for all dashboard pages
+export const dynamic = 'force-dynamic'
+
 // Error component for authentication failures
 function AuthError() {
   return (
