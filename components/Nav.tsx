@@ -5,13 +5,26 @@ import { Menu, X } from 'lucide-react';
 import { navLinks } from '@/config/navLinks';
 import { socialLinks } from '@/config/socialLinks';
 import { useUser, SignOutButton } from '@clerk/nextjs';
-import { getUserData } from '@/lib/actions/GetUserData'; // Update this path
+import { getUserData } from '@/lib/actions/GetUserData';
+import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link'
+
+// Loading Spinner Component
+const LoadingOverlay = () => (
+  <div className="fixed inset-0 bg-white dark:bg-gray-900 bg-opacity-30 flex items-center justify-center z-[70]">
+    <div className="p-4">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto"></div>
+      <p className="mt-2 text-center text-gray-600 dark:text-gray-400">Loading...</p>
+    </div>
+  </div>
+);
 
 export default function NavBar() {
   const { user } = useUser();
+  const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [greeting, setGreeting] = useState('');
   const [avatar, setAvatar] = useState<string | null>(null);
   const [username, setUsername] = useState<string>('');
@@ -48,12 +61,25 @@ export default function NavBar() {
     }
   }, [user]);
 
+  const handleNavigation = (href: string, callback?: () => void) => {
+    if (pathname !== href) {
+      setLoading(true);
+      router.push(href);
+      // Hide loading after navigation completes
+      setTimeout(() => setLoading(false), 800);
+    }
+    // Execute callback (like closing sidebar)
+    if (callback) callback();
+  };
+
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   const fallbackInitial = username ? username.charAt(0).toUpperCase() : '';
 
   return (
     <>
+      {loading && <LoadingOverlay />}
+      
       {/* Top Navigation Bar */}
       <div className="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-40 flex items-center justify-between">
         {/* Menu Toggle Button and Greeting */}
@@ -103,14 +129,16 @@ export default function NavBar() {
           <h1 className="text-sm p-2 text-gray-600 dark:text-gray-200">Follow us</h1>
           <div className="flex space-x-4">
             {socialLinks.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors duration-200"
                 aria-label={link.name}
               >
                 <link.icon size={24} />
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -119,10 +147,9 @@ export default function NavBar() {
             <ul className="space-y-1">
               {navLinks.map((link) => (
                 <li key={link.href} className="relative">
-                  <Link
-                    href={link.href}
-                    className="flex items-center px-2 py-4 text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all duration-200 group"
-                    onClick={toggleSidebar}
+                  <button
+                    onClick={() => handleNavigation(link.href, toggleSidebar)}
+                    className="flex items-center px-2 py-4 text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all duration-200 group w-full text-left"
                   >
                     <div className="flex-shrink-0 mr-8 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-200">
                       <link.icon size={18} />
@@ -131,15 +158,15 @@ export default function NavBar() {
                     <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                       <div className="w-2 h-2 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
                     </div>
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
           </nav>
         </div>
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-100 dark:border-gray-600">
-        <SignOutButton>
-            <button className=" py-4 bg-green-900 dark:bg-green-500 text-white dark:text-gray-900 w-full rounded-lg hover:bg-slate-500">
+          <SignOutButton>
+            <button className="py-4 bg-green-900 dark:bg-green-500 text-white dark:text-gray-900 w-full rounded-lg hover:bg-slate-500">
               Log Out
             </button>
           </SignOutButton>
@@ -152,7 +179,7 @@ export default function NavBar() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+          className="fixed inset-0 bg-white bg-opacity-30 z-40 transition-opacity duration-300"
           onClick={toggleSidebar}
           aria-hidden="true"
         />

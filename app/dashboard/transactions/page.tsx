@@ -45,7 +45,7 @@ export default function TransactionsPage() {
   }
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-2 p-6">
+    <div className="w-full max-w-6xl mx-auto space-y-2 p-2">
       {/* Header Section */}
       <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm p-6 mb-4">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2 tracking-tight">

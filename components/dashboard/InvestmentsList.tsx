@@ -219,7 +219,7 @@ export default function InvestmentsList({ investments }: InvestmentsListProps) {
       {/* Add New Investment Button */}
       <div className="mt-6">
         <Link href="/dashboard/invest">
-          <button className="w-full flex items-center justify-center gap-3 px-6 py-4 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-2xl font-medium bg-white dark:bg-green-600">
+          <button className="w-full flex items-center justify-center gap-3 px-6 py-4 text-white bg-green-600 dark:bg-green-600 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-2xl font-medium ">
             <TrendingUp className="w-5 h-5" />
             Start New Investment
           </button>
